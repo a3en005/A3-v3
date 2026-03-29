@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#060b14">
+<title>A3-Elite Market Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060b14;--bg2:#0d1520;--bg3:#111d2c;
+  --border:#1a2840;--border2:#243350;
+  --accent:#0ea5e9;--accent2:#38bdf8;
+  --bull:#10d990;--bear:#ff3c5a;--warn:#f59e0b;
+  --purple:#a78bfa;--gold:#fbbf24;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#4a6080;
+  --font:'Rajdhani',sans-serif;--mono:'Space Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 40px;background:rgba(6,11,20,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:3px}
+.nav-logo span{color:var(--text3)}
+.nav-links{display:flex;gap:32px;font-size:14px;color:var(--text2)}
+.nav-links a:hover{color:var(--accent);transition:color .2s}
+.nav-cta{background:var(--accent);color:#000;padding:8px 20px;border-radius:4px;font-family:var(--font);font-size:14px;font-weight:700;letter-spacing:1px;cursor:pointer;border:none;transition:opacity .2s}
+.nav-cta:hover{opacity:.8}
+.nav-mobile-toggle{display:none;background:none;border:none;color:var(--text);font-size:22px;cursor:pointer}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 20px 80px;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.3;pointer-events:none}
+.hero-glow{position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(14,165,233,.12) 0%,transparent 70%);pointer-events:none}
+.hero-tag{font-family:var(--mono);font-size:11px;letter-spacing:3px;color:var(--accent);background:rgba(14,165,233,.1);border:1px solid rgba(14,165,233,.2);padding:5px 14px;border-radius:20px;margin-bottom:24px;display:inline-block}
+.hero h1{font-size:clamp(36px,6vw,72px);font-weight:700;line-height:1.1;letter-spacing:-1px;max-width:800px;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero-sub{font-size:18px;color:var(--text2);max-width:520px;line-height:1.6;margin-bottom:40px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn-primary{background:var(--accent);color:#000;padding:14px 32px;border-radius:4px;font-family:var(--font);font-size:15px;font-weight:700;letter-spacing:1px;cursor:pointer;border:none;transition:opacity .2s;display:inline-block}
+.btn-primary:hover{opacity:.85}
+.btn-secondary{background:transparent;color:var(--text);padding:14px 32px;border-radius:4px;font-family:var(--font);font-size:15px;font-weight:600;cursor:pointer;border:1px solid var(--border2);transition:border-color .2s;display:inline-block}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.hero-stats{display:flex;gap:48px;margin-top:64px;flex-wrap:wrap;justify-content:center}
+.hstat{text-align:center}
+.hstat-val{font-family:var(--mono);font-size:28px;font-weight:700;color:var(--accent)}
+.hstat-lbl{font-size:12px;color:var(--text3);letter-spacing:1px;margin-top:4px}
+</style>
+
+<style>
+/* SECTION SHARED */
+section{padding:100px 20px}
+.container{max-width:1100px;margin:0 auto}
+.section-tag{font-family:var(--mono);font-size:10px;letter-spacing:3px;color:var(--accent);margin-bottom:12px}
+.section-title{font-size:clamp(28px,4vw,44px);font-weight:700;line-height:1.2;margin-bottom:16px}
+.section-sub{font-size:16px;color:var(--text2);max-width:560px;line-height:1.7}
+
+/* WHY */
+#why{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.why-header{text-align:center;margin-bottom:60px}
+.why-header .section-sub{margin:0 auto}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.feat-card{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:28px 24px;transition:border-color .2s}
+.feat-card:hover{border-color:var(--accent)}
+.feat-icon{font-size:28px;margin-bottom:14px}
+.feat-title{font-size:17px;font-weight:700;margin-bottom:8px;color:var(--text)}
+.feat-desc{font-size:14px;color:var(--text2);line-height:1.6}
+
+/* CRYPTO / MULTI-ASSET */
+#multi{position:relative;overflow:hidden}
+.multi-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.multi-visual{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.ticker-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--bg2);border-radius:4px;border:1px solid var(--border)}
+.ticker-sym{font-family:var(--mono);font-size:12px;font-weight:700}
+.ticker-price{font-family:var(--mono);font-size:13px}
+.ticker-chg{font-family:var(--mono);font-size:11px;padding:2px 7px;border-radius:3px}
+.chg-up{background:rgba(16,217,144,.12);color:var(--bull)}
+.chg-dn{background:rgba(255,60,90,.12);color:var(--bear)}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--bull);animation:pulse 2s infinite;display:inline-block;margin-right:6px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* HOW IT WORKS */
+#how{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.how-header{text-align:center;margin-bottom:60px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.step{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:32px 24px;position:relative}
+.step-num{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:2px;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.step-num::after{content:'';flex:1;height:1px;background:var(--border)}
+.step-title{font-size:18px;font-weight:700;margin-bottom:10px}
+.step-desc{font-size:14px;color:var(--text2);line-height:1.6}
+
+/* PRICING */
+#pricing{text-align:center}
+.pricing-header{margin-bottom:60px}
+.pricing-header .section-sub{margin:0 auto}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:960px;margin:0 auto}
+.plan{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:32px 28px;text-align:left;position:relative;transition:border-color .2s}
+.plan:hover{border-color:var(--border2)}
+.plan.popular{border-color:var(--accent);background:linear-gradient(135deg,var(--bg3),rgba(14,165,233,.05))}
+.plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#000;font-size:10px;font-weight:700;letter-spacing:2px;padding:3px 12px;border-radius:20px;font-family:var(--mono)}
+.plan-name{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--text3);margin-bottom:12px}
+.plan-price{font-family:var(--mono);font-size:40px;font-weight:700;color:var(--text);margin-bottom:4px}
+.plan-price span{font-size:16px;color:var(--text3)}
+.plan-desc{font-size:13px;color:var(--text2);margin-bottom:24px;line-height:1.5}
+.plan-btn{display:block;text-align:center;background:var(--accent);color:#000;padding:11px;border-radius:4px;font-weight:700;font-size:14px;letter-spacing:1px;margin-bottom:24px;transition:opacity .2s}
+.plan-btn:hover{opacity:.8}
+.plan.popular .plan-btn{background:var(--accent)}
+.plan:not(.popular) .plan-btn{background:var(--bg2);color:var(--text);border:1px solid var(--border2)}
+.plan:not(.popular) .plan-btn:hover{border-color:var(--accent);color:var(--accent)}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:10px}
+.plan-features li{font-size:13px;color:var(--text2);display:flex;align-items:center;gap:8px}
+.plan-features li::before{content:'✓';color:var(--bull);font-size:12px;flex-shrink:0}
+
+/* CTA BANNER */
+#cta{background:linear-gradient(135deg,rgba(14,165,233,.08),rgba(167,139,250,.06));border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;padding:100px 20px}
+.cta-title{font-size:clamp(28px,4vw,48px);font-weight:700;margin-bottom:16px;line-height:1.2}
+.cta-sub{font-size:16px;color:var(--text2);margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 40px 40px}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
+.footer-brand .nav-logo{font-size:14px;display:block;margin-bottom:12px}
+.footer-brand p{font-size:13px;color:var(--text3);line-height:1.6;max-width:280px}
+.footer-col h4{font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--accent);margin-bottom:16px}
+.footer-col a{display:block;font-size:13px;color:var(--text2);margin-bottom:10px;transition:color .2s}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{max-width:1100px;margin:40px auto 0;padding-top:24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--text3);flex-wrap:wrap;gap:10px}
+
+/* AUTH MODAL */
+.auth-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;display:none;justify-content:center;align-items:center;padding:20px}
+.auth-overlay.show{display:flex}
+.auth-box{background:var(--bg2);border:1px solid var(--border);border-radius:8px;width:100%;max-width:420px;padding:32px;position:relative}
+.auth-close{position:absolute;top:12px;right:16px;font-size:22px;cursor:pointer;color:var(--text3);background:none;border:none}
+.auth-close:hover{color:var(--text)}
+.auth-logo{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:3px;margin-bottom:20px}
+.auth-title{font-size:22px;font-weight:700;margin-bottom:6px}
+.auth-sub{font-size:13px;color:var(--text2);margin-bottom:24px}
+.auth-field{margin-bottom:16px}
+.auth-field label{display:block;font-size:12px;color:var(--text2);margin-bottom:6px;letter-spacing:.5px}
+.auth-field input{width:100%;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:10px 12px;font-family:var(--font);font-size:14px;outline:none;border-radius:4px}
+.auth-field input:focus{border-color:var(--accent)}
+.auth-plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+.auth-plan{border:1px solid var(--border2);border-radius:4px;padding:10px 8px;text-align:center;cursor:pointer;transition:border-color .15s}
+.auth-plan:hover{border-color:var(--accent)}
+.auth-plan.selected{border-color:var(--accent);background:rgba(14,165,233,.08)}
+.auth-plan-name{font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:1px;margin-bottom:4px}
+.auth-plan-price{font-size:16px;font-weight:700;color:var(--text)}
+.auth-plan-price span{font-size:10px;color:var(--text3)}
+.auth-btn{width:100%;background:var(--accent);color:#000;border:none;padding:12px;font-family:var(--font);font-size:14px;font-weight:700;letter-spacing:1px;cursor:pointer;border-radius:4px;margin-top:4px;transition:opacity .2s}
+.auth-btn:hover{opacity:.85}
+.auth-btn:disabled{opacity:.5;cursor:not-allowed}
+.auth-switch{text-align:center;margin-top:16px;font-size:13px;color:var(--text2)}
+.auth-switch a{color:var(--accent);cursor:pointer;text-decoration:underline}
+.auth-error{background:rgba(255,60,90,.1);border:1px solid rgba(255,60,90,.3);color:var(--bear);font-size:12px;padding:8px 12px;border-radius:4px;margin-bottom:14px;display:none}
+.auth-success{background:rgba(16,217,144,.1);border:1px solid rgba(16,217,144,.3);color:var(--bull);font-size:12px;padding:8px 12px;border-radius:4px;margin-bottom:14px;display:none}
+/* Nav user state */
+.nav-user{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text2)}
+.nav-user-name{font-family:var(--mono);font-size:11px;color:var(--accent)}
+.nav-signout{background:none;border:1px solid var(--border2);color:var(--text2);padding:6px 14px;border-radius:4px;font-size:12px;cursor:pointer;transition:border-color .2s}
+.nav-signout:hover{border-color:var(--accent);color:var(--accent)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:14px 20px}
+  .nav-links{display:none}
+  .nav-mobile-toggle{display:block}
+  .multi-inner{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .hero-stats{gap:28px}
+  section{padding:70px 20px}
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">A3-ELITE <span>INTELLIGENCE</span></div>
+  <div class="nav-links">
+    <a href="#why">Why A3-Elite</a>
+    <a href="#how">How It Works</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+  <div id="nav-auth-area">
+    <button class="nav-cta" onclick="openAuth('signup')">GET STARTED</button>
+  </div>
+  <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').style.display=document.querySelector('.nav-links').style.display==='flex'?'none':'flex';document.querySelector('.nav-links').style.flexDirection='column';document.querySelector('.nav-links').style.position='absolute';document.querySelector('.nav-links').style.top='60px';document.querySelector('.nav-links').style.left='0';document.querySelector('.nav-links').style.right='0';document.querySelector('.nav-links').style.background='var(--bg2)';document.querySelector('.nav-links').style.padding='20px';document.querySelector('.nav-links').style.borderBottom='1px solid var(--border)'">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-tag">● LIVE MARKET INTELLIGENCE</div>
+  <h1>Take Control of Your<br><em>Trading Career</em></h1>
+  <p class="hero-sub">Turn complex charts into effortless trading decisions. Institutional-grade analysis, real-time signals, and AI-powered insights — 100% free.</p>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="openAuth('signup')">LAUNCH APP FREE</button>
+    <a href="#why" class="btn-secondary">SEE FEATURES</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-val">60+</div><div class="hstat-lbl">INSTRUMENTS</div></div>
+    <div class="hstat"><div class="hstat-val">13</div><div class="hstat-lbl">ANALYSIS TABS</div></div>
+    <div class="hstat"><div class="hstat-val">3-TIER</div><div class="hstat-lbl">SIGNAL SYSTEM</div></div>
+    <div class="hstat"><div class="hstat-val">$0</div><div class="hstat-lbl">COST</div></div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="container">
+    <div class="why-header">
+      <div class="section-tag">WHY A3-ELITE</div>
+      <h2 class="section-title">Benefits designed for serious traders</h2>
+      <p class="section-sub">A seamless, powerful, and accessible experience for all skill levels — from beginners to institutional traders.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon">🏛️</div>
+        <div class="feat-title">Institutional Analysis</div>
+        <div class="feat-desc">Automated Smart Money mapping — Order Blocks, FVGs, Premium/Discount zones — across 60+ instruments.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔍</div>
+        <div class="feat-title">Algorithmic Scanning</div>
+        <div class="feat-desc">Multi-pair screener identifies high-probability Unicorn setups across Forex, Crypto, Indices, and Metals in seconds.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📈</div>
+        <div class="feat-title">Data-Driven Growth</div>
+        <div class="feat-desc">Built-in trade journal with auto-logging, CSV export, win-rate analytics, and session performance breakdowns.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🎨</div>
+        <div class="feat-title">Premium Interface</div>
+        <div class="feat-desc">Cyber-tech dark theme optimized for long trading sessions. Intuitive layout that works on desktop and mobile.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📱</div>
+        <div class="feat-title">Telegram Alerts</div>
+        <div class="feat-desc">Get live push notifications for Unicorn models, high-confidence signals, and killzone activations on your phone.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🤖</div>
+        <div class="feat-title">AI Chart Analysis</div>
+        <div class="feat-desc">Upload any chart screenshot and get AI-powered structure assessment, entry/exit recommendations, and R:R calculations.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MULTI-ASSET -->
+<section id="multi">
+  <div class="container">
+    <div class="multi-inner">
+      <div>
+        <div class="section-tag">MULTI-ASSET COVERAGE</div>
+        <h2 class="section-title">Forex, Crypto, Indices & Metals</h2>
+        <p class="section-sub" style="margin-bottom:28px">Live pricing via professional-grade APIs — Frankfurter for Forex, CoinGecko for Crypto — with 60-second auto-refresh and graceful fallbacks.</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;font-size:14px;color:var(--text2)">
+          <li style="display:flex;align-items:center;gap:8px"><span style="color:var(--bull)">✓</span> 7 Forex Majors + 12 Crosses</li>
+          <li style="display:flex;align-items:center;gap:8px"><span style="color:var(--bull)">✓</span> 10 Cryptocurrencies with 24h tracking</li>
+          <li style="display:flex;align-items:center;gap:8px"><span style="color:var(--bull)">✓</span> 9 Global Indices</li>
+          <li style="display:flex;align-items:center;gap:8px"><span style="color:var(--bull)">✓</span> 4 Precious Metals + 3 Commodities</li>
+        </ul>
+      </div>
+      <div class="multi-visual">
+        <div style="font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:2px;margin-bottom:6px;display:flex;align-items:center"><span class="live-dot"></span>LIVE PRICES</div>
+        <div class="ticker-row"><span class="ticker-sym">EUR/USD</span><span class="ticker-price">1.0842</span><span class="ticker-chg chg-up">+0.12%</span></div>
+        <div class="ticker-row"><span class="ticker-sym">BTC/USD</span><span class="ticker-price">67,420</span><span class="ticker-chg chg-up">+2.34%</span></div>
+        <div class="ticker-row"><span class="ticker-sym">XAU/USD</span><span class="ticker-price">2,318</span><span class="ticker-chg chg-dn">-0.08%</span></div>
+        <div class="ticker-row"><span class="ticker-sym">NAS100</span><span class="ticker-price">18,240</span><span class="ticker-chg chg-up">+0.67%</span></div>
+        <div class="ticker-row"><span class="ticker-sym">GBP/USD</span><span class="ticker-price">1.2654</span><span class="ticker-chg chg-dn">-0.21%</span></div>
+        <div class="ticker-row"><span class="ticker-sym">ETH/USD</span><span class="ticker-price">3,512</span><span class="ticker-chg chg-up">+1.89%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <div class="how-header">
+      <div class="section-tag">HOW IT WORKS</div>
+      <h2 class="section-title">Simple, fast, and powerful</h2>
+      <p class="section-sub" style="margin:0 auto">A streamlined workflow to go from market open to high-confidence trade in minutes.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">STEP 01</div>
+        <div class="step-title">Select the Asset</div>
+        <div class="step-desc">Choose from 60+ instrument pairs across Forex, Crypto, Indices, Metals, and Commodities from the dropdown.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">STEP 02</div>
+        <div class="step-title">Analyze the Market</div>
+        <div class="step-desc">The A3-Elite engine maps market structure, Order Blocks, FVGs, killzones, and AMD phases automatically.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">STEP 03</div>
+        <div class="step-title">Execute & Log</div>
+        <div class="step-desc">Get 3-tier classified signals with entry, stop, and target. Auto-journal your trades and review analytics weekly.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="pricing-header">
+      <div class="section-tag">PRICING</div>
+      <h2 class="section-title">Choose your plan</h2>
+      <p class="section-sub">Transparent pricing for every trader. Scale as you grow with no hidden fees.</p>
+    </div>
+    <div class="pricing-grid">
+      <!-- FREE -->
+      <div class="plan">
+        <div class="plan-name">FREE</div>
+        <div class="plan-price">€0<span>/month</span></div>
+        <div class="plan-desc">Perfect for beginners exploring the markets</div>
+        <button class="plan-btn" onclick="openAuth('signup','free')">GET STARTED</button>
+        <ul class="plan-features">
+          <li>60+ instruments analyzed</li>
+          <li>Live TradingView charts</li>
+          <li>Market structure detection</li>
+          <li>Basic signal generation</li>
+          <li>Trade journal (unlimited)</li>
+          <li>Mobile & desktop access</li>
+        </ul>
+      </div>
+      <!-- PRO -->
+      <div class="plan popular">
+        <div class="plan-badge">POPULAR</div>
+        <div class="plan-name">PRO</div>
+        <div class="plan-price">€12<span>/month</span></div>
+        <div class="plan-desc">Advanced tools for serious traders</div>
+        <button class="plan-btn" onclick="openAuth('signup','pro')">GET STARTED</button>
+        <ul class="plan-features">
+          <li>Everything in Free</li>
+          <li>Telegram live alerts</li>
+          <li>Multi-pair screener</li>
+          <li>AI chart analysis</li>
+          <li>Correlation matrix</li>
+          <li>Performance analytics</li>
+          <li>Priority support (2h response)</li>
+        </ul>
+      </div>
+      <!-- BUSINESS -->
+      <div class="plan">
+        <div class="plan-name">BUSINESS</div>
+        <div class="plan-price">€39<span>/month</span></div>
+        <div class="plan-desc">Built for institutions and high-volume traders</div>
+        <button class="plan-btn" onclick="openAuth('signup','business')">GET STARTED</button>
+        <ul class="plan-features">
+          <li>Everything in Pro</li>
+          <li>Dedicated account manager</li>
+          <li>Custom API limits</li>
+          <li>Multi-user team accounts</li>
+          <li>White-label solutions</li>
+          <li>24/7 phone support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section id="cta">
+  <div class="container">
+    <h2 class="cta-title">Ready to take control of<br>your trading career?</h2>
+    <p class="cta-sub">Join traders who trust A3-Elite for institutional-grade analysis, seamless journaling, and real-time mobile alerts.</p>
+    <a href="#pricing" class="btn-primary">LAUNCH APP — IT'S FREE</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="nav-logo">A3-ELITE <span>INTELLIGENCE</span></span>
+      <p>Turn complex charts into effortless trading decisions. Institutional-grade analysis for every trader.</p>
+    </div>
+    <div class="footer-col">
+      <h4>NAVIGATION</h4>
+      <a href="#why">Why A3-Elite</a>
+      <a href="#how">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="index.html">Launch App</a>
+    </div>
+    <div class="footer-col">
+      <h4>SOCIALS</h4>
+      <a href="https://x.com/uxui_arthur" target="_blank">Twitter (X)</a>
+      <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 A3-Elite Intelligence. All rights reserved.</span>
+    <span style="color:var(--text3)">Built for traders, by traders.</span>
+  </div>
+</footer>
+
+<!-- AUTH MODALS -->
+<div class="auth-overlay" id="auth-overlay">
+  <div class="auth-box">
+    <button class="auth-close" onclick="closeAuth()">✕</button>
+    <div class="auth-logo">A3-ELITE INTELLIGENCE</div>
+
+    <!-- SIGN UP -->
+    <div id="auth-signup">
+      <div class="auth-title">Create your account</div>
+      <div class="auth-sub">Start trading smarter — free forever, upgrade anytime.</div>
+      <div class="auth-error" id="signup-error"></div>
+      <div class="auth-success" id="signup-success"></div>
+      <div class="auth-field"><label>FULL NAME</label><input type="text" id="signup-name" placeholder="Your name"></div>
+      <div class="auth-field"><label>EMAIL</label><input type="email" id="signup-email" placeholder="you@example.com"></div>
+      <div class="auth-field"><label>PASSWORD</label><input type="password" id="signup-password" placeholder="Min. 8 characters"></div>
+      <div class="auth-field">
+        <label>SELECT PLAN</label>
+        <div class="auth-plan-grid">
+          <div class="auth-plan selected" data-plan="free" onclick="selectPlan('free')">
+            <div class="auth-plan-name">FREE</div>
+            <div class="auth-plan-price">€0<span>/mo</span></div>
+          </div>
+          <div class="auth-plan" data-plan="pro" onclick="selectPlan('pro')">
+            <div class="auth-plan-name">PRO</div>
+            <div class="auth-plan-price">€12<span>/mo</span></div>
+          </div>
+          <div class="auth-plan" data-plan="business" onclick="selectPlan('business')">
+            <div class="auth-plan-name">BUSINESS</div>
+            <div class="auth-plan-price">€39<span>/mo</span></div>
+          </div>
+        </div>
+      </div>
+      <button class="auth-btn" id="signup-btn" onclick="doSignup()">CREATE ACCOUNT</button>
+      <div class="auth-switch">Already have an account? <a onclick="switchAuth('login')">Sign in</a></div>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="auth-login" style="display:none">
+      <div class="auth-title">Welcome back</div>
+      <div class="auth-sub">Sign in to access your dashboard and trade data.</div>
+      <div class="auth-error" id="login-error"></div>
+      <div class="auth-field"><label>EMAIL</label><input type="email" id="login-email" placeholder="you@example.com"></div>
+      <div class="auth-field"><label>PASSWORD</label><input type="password" id="login-password" placeholder="Your password"></div>
+      <button class="auth-btn" id="login-btn" onclick="doLogin()">SIGN IN</button>
+      <div class="auth-switch">No account yet? <a onclick="switchAuth('signup')">Sign up free</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- SUPABASE JS -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+const SUPABASE_URL = 'https://rvjelddscvscsixvkngr.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_L7zt01EEtWgU6pvo0gqQmw_e_v9Gwn-';
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+let selectedPlan = 'free';
+
+// ── AUTH STATE ──
+sb.auth.onAuthStateChange((event, session) => {
+  const area = document.getElementById('nav-auth-area');
+  if (session) {
+    const name = session.user.user_metadata?.full_name || session.user.email;
+    area.innerHTML = `
+      <div class="nav-user">
+        <span class="nav-user-name">${name.split(' ')[0].toUpperCase()}</span>
+        <button class="nav-signout" onclick="doSignout()">SIGN OUT</button>
+        <a href="index.html" class="nav-cta" style="margin-left:4px">LAUNCH APP</a>
+      </div>`;
+    if (event === 'SIGNED_IN') {
+      closeAuth();
+      setTimeout(() => window.location.href = 'index.html', 400);
+    }
+  } else {
+    area.innerHTML = `<button class="nav-cta" onclick="openAuth('signup')">GET STARTED</button>`;
+  }
+});
+
+// ── MODAL CONTROLS ──
+function openAuth(mode, plan) {
+  if (plan) selectPlan(plan);
+  switchAuth(mode);
+  document.getElementById('auth-overlay').classList.add('show');
+}
+function closeAuth() {
+  document.getElementById('auth-overlay').classList.remove('show');
+}
+function switchAuth(mode) {
+  document.getElementById('auth-signup').style.display = mode === 'signup' ? 'block' : 'none';
+  document.getElementById('auth-login').style.display  = mode === 'login'  ? 'block' : 'none';
+}
+function selectPlan(plan) {
+  selectedPlan = plan;
+  document.querySelectorAll('.auth-plan').forEach(el => {
+    el.classList.toggle('selected', el.dataset.plan === plan);
+  });
+}
+document.getElementById('auth-overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('auth-overlay')) closeAuth();
+});
+
+// ── SIGN UP ──
+async function doSignup() {
+  const name  = document.getElementById('signup-name').value.trim();
+  const email = document.getElementById('signup-email').value.trim();
+  const pass  = document.getElementById('signup-password').value;
+  const errEl = document.getElementById('signup-error');
+  const okEl  = document.getElementById('signup-success');
+  const btn   = document.getElementById('signup-btn');
+  errEl.style.display = 'none'; okEl.style.display = 'none';
+
+  if (!name || !email || !pass) { showErr(errEl, 'Please fill in all fields.'); return; }
+  if (pass.length < 8)          { showErr(errEl, 'Password must be at least 8 characters.'); return; }
+
+  btn.disabled = true; btn.textContent = 'CREATING ACCOUNT...';
+  const { error } = await sb.auth.signUp({
+    email, password: pass,
+    options: { data: { full_name: name, plan: selectedPlan } }
+  });
+  btn.disabled = false; btn.textContent = 'CREATE ACCOUNT';
+
+  if (error) { showErr(errEl, error.message); return; }
+  okEl.textContent = 'Account created! Check your email to confirm, then you\'ll be redirected.';
+  okEl.style.display = 'block';
+}
+
+// ── LOGIN ──
+async function doLogin() {
+  const email = document.getElementById('login-email').value.trim();
+  const pass  = document.getElementById('login-password').value;
+  const errEl = document.getElementById('login-error');
+  const btn   = document.getElementById('login-btn');
+  errEl.style.display = 'none';
+
+  if (!email || !pass) { showErr(errEl, 'Please enter your email and password.'); return; }
+
+  btn.disabled = true; btn.textContent = 'SIGNING IN...';
+  const { error } = await sb.auth.signInWithPassword({ email, password: pass });
+  btn.disabled = false; btn.textContent = 'SIGN IN';
+
+  if (error) showErr(errEl, error.message);
+}
+
+// ── SIGN OUT ──
+async function doSignout() { await sb.auth.signOut(); }
+
+function showErr(el, msg) { el.textContent = msg; el.style.display = 'block'; }
+</script>
+
+</body>
+</html>

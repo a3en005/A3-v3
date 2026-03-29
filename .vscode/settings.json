@@ -1,0 +1,15 @@
+{
+    "kiroAgent.trustedCommands": [
+        "Get-Content index.html -Raw | Select-String -Pattern 'localStorage|journal|trades|watchlist|settings|saveSettings|exportJournal|showNewTrade|addAlert|clearAllData' -AllMatches | ForEach-Object { $_.Matches } | Select-Object -First 60 | ForEach-Object { $_.Value }",
+        "$content *",
+        "$content = Get-Content index.html -Raw",
+        "$pattern = 'localStorage\\.[a-zA-Z]+\\([^)]{0,80}\\)'",
+        "$matches = [regex]::Matches($content, $pattern)",
+        "$matches | ForEach-Object { $_.Value } | Sort-Object -Unique",
+        "$c *",
+        "\n[System.IO.File]::ReadAllText(\"index.html\") | Select-String -Pattern \"saveSettings|a3settings|a3telegram|clearAllData|resetSettings\" -AllMatches | ForEach-Object { $_.Matches } | ForEach-Object { $_.Value }\n",
+        "\n$lines = [System.IO.File]::ReadAllLines(\"index.html\")\nWrite-Host \"Total lines: $($lines.Length)\"\nfor($i=0; $i -lt $lines.Length; $i++) {\n  if($lines[$i] -match \"saveSettings|a3settings|a3telegram|clearAllData|DOMContentLoaded|renderJournal|renderAlerts\") {\n    Write-Host \"Line $($i+1): $($lines[$i].Substring(0, [Math]::Min(120, $lines[$i].Length)))\"\n  }\n}\n",
+        "\n$lines = [System.IO.File]::ReadAllLines(\"index.html\")\nfor($i=0; $i -lt $lines.Length; $i++) {\n  if($lines[$i] -match \"localStorage.setItem\\('a3telegram'\") {\n    $lines[$i] = $lines[$i] -replace \"localStorage\\.setItem\\('a3telegram', JSON\\.stringify\\(telegramConfig\\)\\);\", \"sbSaveTelegramConfig(telegramConfig);\"\n  }\n}\n[System.IO.File]::WriteAllLines(\"index.html\", $lines)\nWrite-Host \"Done\"\n",
+        "\n$lines = [System.IO.File]::ReadAllLines(\"index.html\")\n$found = $false\nfor($i=0; $i -lt $lines.Length; $i++) {\n  if($lines[$i] -match \"localStorage\") {\n    Write-Host \"Line $($i+1): $($lines[$i].Trim())\"\n    $found = $true\n  }\n}\nif(-not $found) { Write-Host \"No localStorage references remaining.\" }\n"
+    ]
+}

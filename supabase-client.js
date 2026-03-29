@@ -41,14 +41,14 @@ function updateNavAuthUI(session) {
         <button onclick="sbSignOut()" style="background:none;border:1px solid var(--border2);color:var(--text2);padding:4px 10px;border-radius:3px;font-size:11px;cursor:pointer">SIGN OUT</button>
       </div>`;
   } else {
-    area.innerHTML = `<button onclick="window.location.href='app.html'" style="background:var(--accent);color:#000;border:none;padding:5px 14px;font-family:var(--font);font-size:13px;font-weight:700;letter-spacing:1px;cursor:pointer;border-radius:3px">SIGN IN</button>`;
+    area.innerHTML = `<button onclick="window.location.href='index.html'" style="background:var(--accent);color:#000;border:none;padding:5px 14px;font-family:var(--font);font-size:13px;font-weight:700;letter-spacing:1px;cursor:pointer;border-radius:3px">SIGN IN</button>`;
   }
 }
 
 async function sbSignOut() {
   await _sb.auth.signOut();
   _currentUser = null;
-  window.location.href = 'app.html';
+  window.location.href = 'index.html';
 }
 
 // ── MIGRATE localStorage → Supabase on first login ───────────────────────────

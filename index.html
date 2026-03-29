@@ -13,7 +13,7 @@
 :root{
   --bg:#08070e;--bg2:#0d0c18;--bg3:#111020;
   --border:#1a1830;--border2:#242240;
-  --accent:#0ea5e9;--accent2:#38bdf8;
+  --accent:#00ffb2;--accent2:#33ffbe;
   --bull:#10d990;--bear:#ff3c5a;--warn:#f59e0b;
   --purple:#a78bfa;--gold:#fbbf24;
   --text:#f5f5f5;--text2:#94a3b8;--text3:#4a4870;
@@ -56,8 +56,8 @@ nav.scrolled{background:rgba(6,11,20,.92);backdrop-filter:blur(20px);border-bott
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 20px 100px;position:relative;overflow:hidden;perspective:1000px}
 #hero-canvas{position:absolute;inset:0;z-index:0;opacity:.7}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(120,80,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(120,80,255,.04) 1px,transparent 1px);background-size:80px 80px;pointer-events:none;z-index:1;transform:perspective(600px) rotateX(20deg) scale(1.4);transform-origin:center bottom;opacity:.5}
-.hero-glow-1{position:absolute;top:10%;left:20%;width:500px;height:500px;background:radial-gradient(circle,rgba(14,165,233,.12) 0%,transparent 70%);pointer-events:none;z-index:1;animation:floatGlow 8s ease-in-out infinite}
-.hero-glow-2{position:absolute;top:30%;right:15%;width:400px;height:400px;background:radial-gradient(circle,rgba(167,139,250,.08) 0%,transparent 70%);pointer-events:none;z-index:1;animation:floatGlow 10s ease-in-out infinite reverse}
+.hero-glow-1{position:absolute;top:5%;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(0,255,178,.1) 0%,rgba(0,255,178,.03) 40%,transparent 70%);pointer-events:none;z-index:1;animation:floatGlow 8s ease-in-out infinite}
+.hero-glow-2{position:absolute;top:30%;right:15%;width:400px;height:400px;background:radial-gradient(circle,rgba(255,0,102,.07) 0%,transparent 70%);pointer-events:none;z-index:1;animation:floatGlow 10s ease-in-out infinite reverse}
 .hero-glow-3{position:absolute;bottom:10%;left:40%;width:600px;height:300px;background:radial-gradient(ellipse,rgba(16,217,144,.06) 0%,transparent 70%);pointer-events:none;z-index:1}
 @keyframes floatGlow{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-20px) scale(1.05)}66%{transform:translate(-20px,15px) scale(.95)}}
 .hero-content{position:relative;z-index:2;max-width:900px}
@@ -904,113 +904,116 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
 </div>
 
 <script>
-// ── HERO CANVAS — deep space aurora background ────────────────────────────
+// ── HERO CANVAS — Framer design token exact visual ───────────────────────
+// Tokens: #00ffb2 (neon green), #ff0066 (hot pink), #08070e (bg)
 const canvas = document.getElementById('hero-canvas');
 const ctx = canvas.getContext('2d');
-let W, H, particles = [], auroras = [], mouse = {x: -999, y: -999};
+let W, H, particles = [], mouse = {x:-999, y:-999}, ft = 0;
 
 function resize() {
   W = canvas.width = window.innerWidth;
   H = canvas.height = window.innerHeight;
-  initAuroras();
 }
 
 function initParticles() {
   particles = [];
-  const count = Math.floor((W * H) / 12000);
+  const count = Math.floor((W * H) / 20000);
   for (let i = 0; i < count; i++) {
     particles.push({
       x: Math.random() * W, y: Math.random() * H,
-      vx: (Math.random() - .5) * .3, vy: (Math.random() - .5) * .3,
-      r: Math.random() * 1.2 + .3,
-      opacity: Math.random() * .6 + .1,
-      color: Math.random() > .75 ? '#a78bfa' : Math.random() > .5 ? '#0ea5e9' : '#38bdf8'
+      vx: (Math.random() - .5) * .2, vy: (Math.random() - .5) * .2,
+      r: Math.random() * .8 + .2,
+      opacity: Math.random() * .35 + .05,
+      color: Math.random() > .75 ? '255,0,102' : '0,255,178'
     });
   }
 }
 
-function initAuroras() {
-  auroras = [];
-  for (let i = 0; i < 4; i++) {
-    auroras.push({
-      x: Math.random() * W, y: H * (.2 + Math.random() * .5),
-      w: 300 + Math.random() * 400, h: 60 + Math.random() * 100,
-      color: i % 2 === 0 ? 'rgba(14,165,233,' : 'rgba(120,80,255,',
-      speed: .002 + Math.random() * .003,
-      phase: Math.random() * Math.PI * 2,
-      opacity: .04 + Math.random() * .06
-    });
-  }
-}
+function drawFrame() {
+  ft += 0.004;
 
-function drawBackground() {
-  // Deep space gradient
-  const grad = ctx.createLinearGradient(0, 0, 0, H);
-  grad.addColorStop(0, '#08070e');
-  grad.addColorStop(.4, '#0a0918');
-  grad.addColorStop(1, '#08070e');
-  ctx.fillStyle = grad;
+  // ── Base: exact #08070e ──
+  ctx.fillStyle = '#08070e';
   ctx.fillRect(0, 0, W, H);
 
-  // Aurora streaks
-  const t = Date.now() * .001;
-  auroras.forEach(a => {
-    const y = a.y + Math.sin(t * a.speed * 10 + a.phase) * 30;
-    const grad2 = ctx.createRadialGradient(a.x, y, 0, a.x, y, a.w);
-    grad2.addColorStop(0, a.color + a.opacity + ')');
-    grad2.addColorStop(.5, a.color + (a.opacity * .4) + ')');
-    grad2.addColorStop(1, a.color + '0)');
-    ctx.save();
-    ctx.scale(1, a.h / a.w);
-    ctx.fillStyle = grad2;
-    ctx.beginPath();
-    ctx.arc(a.x, y * (a.w / a.h), a.w, 0, Math.PI * 2);
-    ctx.fill();
-    ctx.restore();
-    a.x += Math.sin(t * a.speed + a.phase) * .5;
-    if (a.x < -a.w) a.x = W + a.w;
-    if (a.x > W + a.w) a.x = -a.w;
-  });
-}
+  // ── Primary neon green orb — top-center, large breathing glow ──
+  const pulse = 0.5 + Math.sin(ft * 1.1) * 0.5;
+  const cx = W * .5 + Math.sin(ft * .4) * W * .04;
+  const cy = H * .12 + Math.cos(ft * .3) * H * .03;
 
-function drawParticles() {
-  drawBackground();
+  // Outer wide halo
+  const g1 = ctx.createRadialGradient(cx, cy, 0, cx, cy, W * .6);
+  g1.addColorStop(0,   `rgba(0,255,178,${0.10 + pulse * 0.04})`);
+  g1.addColorStop(0.25,`rgba(0,255,178,${0.05 + pulse * 0.02})`);
+  g1.addColorStop(0.6, 'rgba(0,255,178,0.01)');
+  g1.addColorStop(1,   'rgba(0,255,178,0)');
+  ctx.fillStyle = g1;
+  ctx.fillRect(0, 0, W, H);
 
+  // Inner bright core
+  const g1c = ctx.createRadialGradient(cx, cy, 0, cx, cy, W * .18 * (0.85 + pulse * .15));
+  g1c.addColorStop(0,   `rgba(0,255,178,${0.22 + pulse * 0.08})`);
+  g1c.addColorStop(0.4, `rgba(0,255,178,${0.06 + pulse * 0.03})`);
+  g1c.addColorStop(1,   'rgba(0,255,178,0)');
+  ctx.fillStyle = g1c;
+  ctx.fillRect(0, 0, W, H);
+
+  // ── Hot pink accent — bottom-left drifting ──
+  const px = W * .08 + Math.sin(ft * .6) * W * .06;
+  const py = H * .72 + Math.cos(ft * .45) * H * .05;
+  const g2 = ctx.createRadialGradient(px, py, 0, px, py, W * .28);
+  g2.addColorStop(0,   'rgba(255,0,102,0.14)');
+  g2.addColorStop(0.35,'rgba(255,0,102,0.05)');
+  g2.addColorStop(1,   'rgba(255,0,102,0)');
+  ctx.fillStyle = g2;
+  ctx.fillRect(0, 0, W, H);
+
+  // ── Secondary green — right side ──
+  const rx = W * .88 + Math.sin(ft * .5 + 2) * W * .05;
+  const ry = H * .38 + Math.cos(ft * .7) * H * .06;
+  const g3 = ctx.createRadialGradient(rx, ry, 0, rx, ry, W * .22);
+  g3.addColorStop(0,   'rgba(0,255,178,0.07)');
+  g3.addColorStop(0.5, 'rgba(0,255,178,0.02)');
+  g3.addColorStop(1,   'rgba(0,255,178,0)');
+  ctx.fillStyle = g3;
+  ctx.fillRect(0, 0, W, H);
+
+  // ── Vignette ──
+  const vign = ctx.createRadialGradient(W*.5, H*.5, H*.15, W*.5, H*.5, H*.95);
+  vign.addColorStop(0, 'rgba(0,0,0,0)');
+  vign.addColorStop(1, 'rgba(8,7,14,0.65)');
+  ctx.fillStyle = vign;
+  ctx.fillRect(0, 0, W, H);
+
+  // ── Particles ──
   for (let i = 0; i < particles.length; i++) {
     const p = particles[i];
     p.x += p.vx; p.y += p.vy;
     if (p.x < 0 || p.x > W) p.vx *= -1;
     if (p.y < 0 || p.y > H) p.vy *= -1;
     const dx = mouse.x - p.x, dy = mouse.y - p.y;
-    const dist = Math.sqrt(dx*dx + dy*dy);
-    if (dist < 100) { p.x -= dx * .015; p.y -= dy * .015; }
-
+    if (Math.sqrt(dx*dx+dy*dy) < 90) { p.x -= dx*.01; p.y -= dy*.01; }
     ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-    ctx.fillStyle = p.color;
-    ctx.globalAlpha = p.opacity;
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(${p.color},${p.opacity})`;
     ctx.fill();
-
-    for (let j = i + 1; j < particles.length; j++) {
+    for (let j = i+1; j < particles.length; j++) {
       const q = particles[j];
-      const d = Math.sqrt((p.x-q.x)**2 + (p.y-q.y)**2);
-      if (d < 90) {
-        ctx.beginPath();
-        ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
-        ctx.strokeStyle = '#0ea5e9';
-        ctx.globalAlpha = (1 - d/90) * .12;
-        ctx.lineWidth = .5;
-        ctx.stroke();
+      const d = Math.sqrt((p.x-q.x)**2+(p.y-q.y)**2);
+      if (d < 70) {
+        ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y);
+        ctx.strokeStyle = `rgba(0,255,178,${(1-d/70)*.06})`;
+        ctx.lineWidth = .4; ctx.stroke();
       }
     }
   }
-  ctx.globalAlpha = 1;
-  requestAnimationFrame(drawParticles);
+
+  requestAnimationFrame(drawFrame);
 }
 
 window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
 window.addEventListener('resize', () => { resize(); initParticles(); });
-resize(); initParticles(); drawParticles();
+resize(); initParticles(); drawFrame();
 
 // ── NAV SCROLL ────────────────────────────────────────────────────────────
 window.addEventListener('scroll', () => {
@@ -1035,7 +1038,7 @@ document.addEventListener('mousemove', e => {
   const yPct = (e.clientY / window.innerHeight - .5) * 2;
   const g1 = document.querySelector('.hero-glow-1');
   const g2 = document.querySelector('.hero-glow-2');
-  if (g1) g1.style.transform = `translate(${xPct * 20}px, ${yPct * 15}px)`;
+  if (g1) g1.style.transform = `translateX(-50%) translate(${xPct * 20}px, ${yPct * 15}px)`;
   if (g2) g2.style.transform = `translate(${xPct * -15}px, ${yPct * 10}px)`;
   const frame = document.querySelector('.terminal-wrap');
   if (frame) {

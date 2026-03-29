@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#060b14">
-<title>A3-Elite Market Intelligence — Institutional Trading, Simplified</title>
+<title>A3-Elite Market Intelligence ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Institutional Trading, Simplified</title>
 <meta name="description" content="Institutional-grade market analysis, real-time signals, AI chart reading and trade journaling. Free forever.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Inter+Display:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -29,7 +29,7 @@ a{color:inherit;text-decoration:none}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 </style>
 <style>
-/* ── NAV ── */
+/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ NAV ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;transition:all .4s}
 nav.scrolled{background:rgba(6,11,20,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:12px 48px}
 .nav-logo{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:3px;display:flex;align-items:center;gap:8px}
@@ -52,7 +52,7 @@ nav.scrolled{background:rgba(6,11,20,.92);backdrop-filter:blur(20px);border-bott
 }
 </style>
 <style>
-/* ── HERO ── */
+/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ HERO ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 20px 100px;position:relative;overflow:hidden;perspective:1000px}
 .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,7,14,.35) 0%,rgba(8,7,14,.15) 40%,rgba(8,7,14,.5) 100%);z-index:2;pointer-events:none}
 #hero-canvas{display:none}
@@ -78,7 +78,7 @@ nav.scrolled{background:rgba(6,11,20,.92);backdrop-filter:blur(20px);border-bott
 @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 </style>
 <style>
-/* ── HERO STATS ── */
+/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ HERO STATS ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 .hero-stats{display:flex;gap:0;margin-top:72px;animation:fadeInUp .9s ease .4s both;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:rgba(13,21,32,.7);backdrop-filter:blur(12px)}
 .hstat{text-align:center;padding:20px 40px;border-right:1px solid var(--border);flex:1}
 .hstat:last-child{border-right:none}
@@ -86,13 +86,13 @@ nav.scrolled{background:rgba(6,11,20,.92);backdrop-filter:blur(20px);border-bott
 .hstat-lbl{font-size:11px;color:var(--text3);letter-spacing:2px;margin-top:6px;text-transform:uppercase}
 @media(max-width:768px){.hero-stats{flex-wrap:wrap;border-radius:6px}.hstat{flex:1 1 45%;border-right:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 20px}.hstat:nth-child(2n){border-right:none}.hstat:nth-last-child(-n+2){border-bottom:none}}
 
-/* ── SCROLL INDICATOR ── */
+/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ SCROLL INDICATOR ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 .scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:4;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--text3);font-size:11px;font-family:var(--mono);letter-spacing:2px;animation:fadeInUp 1s ease .8s both}
 .scroll-mouse{width:24px;height:38px;border:2px solid var(--border2);border-radius:12px;display:flex;justify-content:center;padding-top:6px}
 .scroll-wheel{width:4px;height:8px;background:var(--accent);border-radius:2px;animation:scrollWheel 2s ease-in-out infinite}
 @keyframes scrollWheel{0%{transform:translateY(0);opacity:1}100%{transform:translateY(12px);opacity:0}}
 
-/* ── TICKER TAPE ── */
+/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ TICKER TAPE ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 .ticker-wrap{background:rgba(13,21,32,.9);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:10px 0;overflow:hidden;position:relative;z-index:10}
 .ticker-wrap::before,.ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2}
 .ticker-wrap::before{left:0;background:linear-gradient(90deg,var(--bg2),transparent)}
@@ -106,7 +106,7 @@ nav.scrolled{background:rgba(6,11,20,.92);backdrop-filter:blur(20px);border-bott
 @keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 </style>
 <style>
-/* ── SECTIONS ── */
+/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ SECTIONS ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 section{padding:120px 20px;position:relative}
 .container{max-width:1140px;margin:0 auto}
 .section-tag{font-family:var(--mono);font-size:10px;letter-spacing:3px;color:var(--accent);margin-bottom:14px;display:flex;align-items:center;gap:8px}
@@ -114,7 +114,7 @@ section{padding:120px 20px;position:relative}
 .section-title{font-size:clamp(30px,4vw,48px);font-weight:700;line-height:1.15;margin-bottom:18px}
 .section-sub{font-size:17px;color:var(--text2);line-height:1.7;max-width:560px}
 
-/* ── REVEAL ANIMATIONS ── */
+/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ REVEAL ANIMATIONS ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease}
@@ -123,7 +123,7 @@ section{padding:120px 20px;position:relative}
 .reveal-right.visible{opacity:1;transform:translateX(0)}
 .delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}.delay-3{transition-delay:.3s}.delay-4{transition-delay:.4s}.delay-5{transition-delay:.5s}
 
-/* ── WHY SECTION ── */
+/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ WHY SECTION ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 #why{background:linear-gradient(180deg,var(--bg) 0%,#0d0c18 50%,var(--bg) 100%)}
 .why-header{text-align:center;margin-bottom:72px}
 .why-header .section-sub{margin:0 auto}
@@ -139,7 +139,7 @@ section{padding:120px 20px;position:relative}
 .feat-tag{display:inline-block;margin-top:14px;font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--accent);background:rgba(14,165,233,.08);border:1px solid rgba(14,165,233,.15);padding:3px 8px;border-radius:3px}
 </style>
 <style>
-/* ── 3D DASHBOARD PREVIEW ── */
+/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ 3D DASHBOARD PREVIEW ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 #preview{background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;position:relative}
 #preview::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 60% 50%,rgba(14,165,233,.07) 0%,transparent 65%);pointer-events:none}
 .preview-inner{display:grid;grid-template-columns:420px 1fr;gap:64px;align-items:center;position:relative;z-index:1}
@@ -148,7 +148,7 @@ section{padding:120px 20px;position:relative}
 .preview-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:var(--text2)}
 .preview-list li::before{content:'';width:18px;height:18px;border-radius:50%;background:rgba(16,217,144,.15);border:1px solid var(--bull);flex-shrink:0;margin-top:2px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6l3 3 5-5' stroke='%2310d990' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
 
-/* ── TERMINAL MOCKUP ── */
+/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ TERMINAL MOCKUP ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 .terminal-3d{perspective:1400px;transform-style:preserve-3d}
 .terminal-wrap{transform:rotateY(-6deg) rotateX(3deg) scale(.97);transform-origin:center center;transition:transform .6s ease;box-shadow:-24px 24px 80px rgba(0,0,0,.7),0 0 60px rgba(14,165,233,.1),inset 0 1px 0 rgba(255,255,255,.05);border-radius:8px;overflow:hidden;border:1px solid var(--border2)}
 .terminal-wrap:hover{transform:rotateY(-1deg) rotateX(1deg) scale(1)}
@@ -203,7 +203,7 @@ section{padding:120px 20px;position:relative}
 @media(max-width:1000px){.preview-inner{grid-template-columns:1fr}.terminal-3d{display:none}}
 </style>
 <style>
-/* ── MULTI-ASSET TICKER ── */
+/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ MULTI-ASSET TICKER ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 #multi{overflow:hidden}
 .multi-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .live-panel{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:8px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
@@ -222,7 +222,7 @@ section{padding:120px 20px;position:relative}
 .chg-dn{background:rgba(255,60,90,.12);color:var(--bear)}
 @media(max-width:900px){.multi-inner{grid-template-columns:1fr}}
 
-/* ── HOW IT WORKS ── */
+/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ HOW IT WORKS ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 #how{background:linear-gradient(180deg,var(--bg) 0%,#0d0c18 100%)}
 .how-header{text-align:center;margin-bottom:72px}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;position:relative}
@@ -234,7 +234,7 @@ section{padding:120px 20px;position:relative}
 .step-desc{font-size:14px;color:var(--text2);line-height:1.65}
 </style>
 <style>
-/* ── SOCIAL PROOF ── */
+/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ SOCIAL PROOF ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 #proof{text-align:center}
 .proof-header{margin-bottom:60px}
 .testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:60px}
@@ -250,7 +250,7 @@ section{padding:120px 20px;position:relative}
 .proof-logos{display:flex;gap:32px;justify-content:center;align-items:center;flex-wrap:wrap;opacity:.4}
 .proof-logo{font-family:var(--mono);font-size:12px;letter-spacing:2px;color:var(--text2)}
 
-/* ── PRICING ── */
+/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ PRICING ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 #pricing{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .pricing-header{text-align:center;margin-bottom:64px}
 .pricing-header .section-sub{margin:0 auto}
@@ -270,12 +270,12 @@ section{padding:120px 20px;position:relative}
 .plan:not(.popular) .plan-btn:hover{border-color:var(--accent);color:var(--accent)}
 .plan-features{list-style:none;display:flex;flex-direction:column;gap:12px}
 .plan-features li{font-size:14px;color:var(--text2);display:flex;align-items:center;gap:10px}
-.plan-features li::before{content:'✓';color:var(--bull);font-size:13px;flex-shrink:0;font-weight:700}
+.plan-features li::before{content:'ÃƒÂ¢Ã…â€œÃ¢â‚¬Å“';color:var(--bull);font-size:13px;flex-shrink:0;font-weight:700}
 .plan-features li.dim{color:var(--text3)}
-.plan-features li.dim::before{content:'—';color:var(--text3)}
+.plan-features li.dim::before{content:'ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â';color:var(--text3)}
 </style>
 <style>
-/* ── CTA BANNER ── */
+/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ CTA BANNER ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 #cta{text-align:center;position:relative;overflow:hidden}
 .cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(14,165,233,.1) 0%,transparent 70%);pointer-events:none}
 .cta-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(14,165,233,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
@@ -287,7 +287,7 @@ section{padding:120px 20px;position:relative}
 .trust-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text3)}
 .trust-icon{font-size:16px}
 
-/* ── FOOTER ── */
+/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ FOOTER ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40px 40px}
 .footer-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:48px}
 .footer-brand .nav-logo{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:3px;display:block;margin-bottom:14px}
@@ -302,7 +302,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
 @media(max-width:900px){.footer-inner{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
 @media(max-width:600px){.footer-inner{grid-template-columns:1fr};footer{padding:48px 20px 32px}}
 
-/* ── AUTH MODAL ── */
+/* ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ AUTH MODAL ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ */
 .auth-overlay{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:500;display:none;justify-content:center;align-items:center;padding:20px;backdrop-filter:blur(4px)}
 .auth-overlay.show{display:flex}
 .auth-box{background:var(--bg2);border:1px solid var(--border);border-radius:12px;width:100%;max-width:440px;padding:36px;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.5)}
@@ -327,7 +327,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
 .auth-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
 .auth-switch{text-align:center;margin-top:18px;font-size:14px;color:var(--text2)}
 .auth-switch a{color:var(--accent);cursor:pointer;text-decoration:underline}
-.auth-error{background:rgba(255,60,90,.1);border:1px solid rgba(255,60,90,.3);color:var(--bear);font-size:13px;padding:10px 14px;border-radius:6px;margin-bottom:16px;display:none}
+.auth-or{display:flex;align-items:center;gap:12px;margin:20px 0}
+.or-line{flex:1;height:1px;background:var(--border)}
+.or-text{font-size:11px;color:var(--text3);font-family:var(--mono);letter-spacing:1px;white-space:nowrap}
+.auth-oauth{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:4px}
+.oauth-btn{display:flex;align-items:center;justify-content:center;gap:6px;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:10px 8px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;font-family:var(--font)}
+.oauth-btn:hover{border-color:var(--accent);background:rgba(0,255,178,0.05);transform:translateY(-1px)};border:1px solid rgba(255,60,90,.3);color:var(--bear);font-size:13px;padding:10px 14px;border-radius:6px;margin-bottom:16px;display:none}
 .auth-success{background:rgba(16,217,144,.1);border:1px solid rgba(16,217,144,.3);color:var(--bull);font-size:13px;padding:10px 14px;border-radius:6px;margin-bottom:16px;display:none}
 @media(max-width:480px){.auth-box{padding:24px 20px}}
 </style>
@@ -346,7 +351,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
   <div id="nav-auth-area">
     <button class="nav-cta" onclick="openAuth('signup')">GET STARTED FREE</button>
   </div>
-  <button class="nav-mobile-toggle" onclick="toggleMobileNav()">☰</button>
+  <button class="nav-mobile-toggle" onclick="toggleMobileNav()">ÃƒÂ¢Ã‹Å“Ã‚Â°</button>
 </nav>
 
 <!-- HERO -->
@@ -362,8 +367,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
     <h1>Trade Like the<br><em>Professional</em> Does</h1>
     <p class="hero-sub">Turn complex charts into effortless trading experience.</p>
     <div class="hero-btns">
-      <button class="btn-primary" onclick="openAuth('signup')">🚀 START FOR FREE</button>
-      <a href="#preview" class="btn-secondary">📊 SEE THE PLATFORM</a>
+      <button class="btn-primary" onclick="openAuth('signup')">ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬ START FOR FREE</button>
+      <a href="#preview" class="btn-secondary">ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â  SEE THE PLATFORM</a>
     </div>
     <div class="hero-stats">
       <div class="hstat"><div class="hstat-val" data-count="60">0</div><div class="hstat-lbl">Instruments</div></div>
@@ -410,43 +415,43 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
     <div class="why-header reveal">
       <div class="section-tag">WHY A3-ELITE</div>
       <h2 class="section-title">Everything a serious trader needs</h2>
-      <p class="section-sub">Built on professional market analysis concepts — the same tools used by hedge funds and prop desks, now accessible to every trader.</p>
+      <p class="section-sub">Built on professional market analysis concepts ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â the same tools used by hedge funds and prop desks, now accessible to every trader.</p>
     </div>
     <div class="features-grid">
       <div class="feat-card reveal delay-1">
-        <div class="feat-icon-wrap">🏛️</div>
+        <div class="feat-icon-wrap">ÃƒÂ°Ã…Â¸Ã‚ÂÃ¢â‚¬ÂºÃƒÂ¯Ã‚Â¸Ã‚Â</div>
         <div class="feat-title">Market Structure Mapping</div>
         <div class="feat-desc">Automated support/resistance detection, price action zones, premium/discount zones and liquidity sweeps across all timeframes.</div>
         <span class="feat-tag">PROFESSIONAL ANALYSIS</span>
       </div>
       <div class="feat-card reveal delay-2">
-        <div class="feat-icon-wrap">🔍</div>
+        <div class="feat-icon-wrap">ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â</div>
         <div class="feat-title">Multi-Pair Screener</div>
         <div class="feat-desc">Scan all 60+ instruments simultaneously. High-confidence setups surface automatically in seconds.</div>
         <span class="feat-tag">ALGORITHMIC</span>
       </div>
       <div class="feat-card reveal delay-3">
-        <div class="feat-icon-wrap">🤖</div>
+        <div class="feat-icon-wrap">ÃƒÂ°Ã…Â¸Ã‚Â¤Ã¢â‚¬â€œ</div>
         <div class="feat-title">AI Chart Analysis</div>
         <div class="feat-desc">Upload any chart screenshot and receive instant AI-powered structure assessment, entry zones, and risk-reward calculations.</div>
         <span class="feat-tag">AI POWERED</span>
       </div>
       <div class="feat-card reveal delay-1">
-        <div class="feat-icon-wrap">📱</div>
+        <div class="feat-icon-wrap">ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â±</div>
         <div class="feat-title">Telegram Alerts</div>
-        <div class="feat-desc">Live push notifications for high-confidence signals — straight to your phone.</div>
+        <div class="feat-desc">Live push notifications for high-confidence signals ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â straight to your phone.</div>
         <span class="feat-tag">REAL-TIME</span>
       </div>
       <div class="feat-card reveal delay-2">
-        <div class="feat-icon-wrap">📈</div>
+        <div class="feat-icon-wrap">ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‹â€ </div>
         <div class="feat-title">Trade Journal & Analytics</div>
         <div class="feat-desc">Auto-log signals, track win rate, session performance, and risk-reward distribution. Export to CSV anytime. Data synced to cloud.</div>
         <span class="feat-tag">CLOUD SYNC</span>
       </div>
       <div class="feat-card reveal delay-3">
-        <div class="feat-icon-wrap">⚡</div>
+        <div class="feat-icon-wrap">ÃƒÂ¢Ã…Â¡Ã‚Â¡</div>
         <div class="feat-title">Session Intelligence</div>
-        <div class="feat-desc">Live session tracking, market phase detection, volatility windows, and divergence alerts — all automated.</div>
+        <div class="feat-desc">Live session tracking, market phase detection, volatility windows, and divergence alerts ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â all automated.</div>
         <span class="feat-tag">SESSION AWARE</span>
       </div>
     </div>
@@ -460,16 +465,16 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
       <div class="preview-text reveal-left">
         <div class="section-tag">THE PLATFORM</div>
         <h2 class="section-title">A terminal built for precision</h2>
-        <p class="section-sub" style="margin-bottom:28px">Every panel, every data point, every signal — designed to give you an edge the moment you open the app.</p>
+        <p class="section-sub" style="margin-bottom:28px">Every panel, every data point, every signal ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â designed to give you an edge the moment you open the app.</p>
         <ul class="preview-list">
           <li>Live TradingView charts with professional analysis overlays</li>
           <li>Real-time support/resistance and price action zone visualization</li>
-          <li>Multi-timeframe bias dashboard (1m → 1D)</li>
+          <li>Multi-timeframe bias dashboard (1m ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ 1D)</li>
           <li>Liquidity map with key level markers</li>
           <li>Economic calendar with impact filtering</li>
           <li>Correlation matrix across all asset classes</li>
         </ul>
-        <button class="btn-primary" onclick="openAuth('signup')">Access the Platform →</button>
+        <button class="btn-primary" onclick="openAuth('signup')">Access the Platform ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢</button>
       </div>
 
       <!-- TERMINAL MOCKUP -->
@@ -480,8 +485,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
           <div class="tm-hdr">
             <div class="tm-logo">A3-ELITE <span>INTELLIGENCE</span></div>
             <div class="tm-ctrl">
-              <div class="tm-sym">EUR/USD ▾</div>
-              <div class="tm-tf">4h ▾</div>
+              <div class="tm-sym">EUR/USD ÃƒÂ¢Ã¢â‚¬â€œÃ‚Â¾</div>
+              <div class="tm-tf">4h ÃƒÂ¢Ã¢â‚¬â€œÃ‚Â¾</div>
               <div class="tm-analyze">ANALYZE</div>
             </div>
             <div class="tm-time">
@@ -548,12 +553,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
               <div class="tm-tv-bar">
                 <div class="tm-tv-btn">1m</div><div class="tm-tv-btn">30m</div><div class="tm-tv-btn">1h</div><div class="tm-tv-btn on">4h</div>
                 <div style="width:1px;height:12px;background:var(--border);margin:0 4px"></div>
-                <div class="tm-tv-btn">⊞</div><div class="tm-tv-btn">⟳</div><div class="tm-tv-btn">📈</div>
+                <div class="tm-tv-btn">ÃƒÂ¢Ã…Â Ã…Â¾</div><div class="tm-tv-btn">ÃƒÂ¢Ã…Â¸Ã‚Â³</div><div class="tm-tv-btn">ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‹â€ </div>
                 <div style="margin-left:auto;font-family:var(--mono);font-size:8px;color:var(--accent);background:rgba(14,165,233,.1);padding:2px 8px;border-radius:2px">Indicators</div>
               </div>
               <!-- OHLC -->
               <div class="tm-ohlc">
-                <span style="color:var(--text2)">● Euro / U.S. Dollar · 4h · ICE</span>
+                <span style="color:var(--text2)">ÃƒÂ¢Ã¢â‚¬â€Ã‚Â Euro / U.S. Dollar Ãƒâ€šÃ‚Â· 4h Ãƒâ€šÃ‚Â· ICE</span>
                 <span>O <span style="color:var(--text)">1.15123</span></span>
                 <span>H <span style="color:var(--bull)">1.15207</span></span>
                 <span>L <span style="color:var(--bear)">1.15043</span></span>
@@ -573,7 +578,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
                   <text x="648" y="70" font-size="7" fill="#4a6080" font-family="monospace">1.1900</text>
                   <text x="648" y="106" font-size="7" fill="#4a6080" font-family="monospace">1.1700</text>
                   <text x="648" y="142" font-size="7" fill="#4a6080" font-family="monospace">1.1600</text>
-                  <!-- Candles — bear run matching screenshot -->
+                  <!-- Candles ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â bear run matching screenshot -->
                   <g>
                     <!-- Rising candles early -->
                     <line x1="12" y1="95" x2="12" y2="115" stroke="#10d990" stroke-width="1"/><rect x="9" y="100" width="6" height="10" fill="#10d990"/>
@@ -670,7 +675,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
         <h2 class="section-title">Forex, Crypto, Indices & Metals</h2>
         <p class="section-sub" style="margin-bottom:28px">Live pricing via professional-grade APIs with 60-second auto-refresh. One platform, every market.</p>
         <ul class="preview-list">
-          <li>7 Forex Majors + 12 Crosses — live via Frankfurter API</li>
+          <li>7 Forex Majors + 12 Crosses ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â live via Frankfurter API</li>
           <li>10 Cryptocurrencies with 24h change tracking</li>
           <li>9 Global Indices including Dow, Nasdaq, DAX</li>
           <li>4 Precious Metals + 3 Energy Commodities</li>
@@ -678,12 +683,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
       </div>
       <div class="live-panel reveal-right">
         <div class="live-header"><div class="live-dot"></div>LIVE MARKET PRICES</div>
-        <div class="ticker-row"><div class="t-left"><div class="t-icon">💱</div><div><div class="t-sym">EUR/USD</div><div class="t-name">Euro / Dollar</div></div></div><div class="t-right"><div class="t-price">1.0842</div><div class="t-chg chg-up">+0.12%</div></div></div>
-        <div class="ticker-row"><div class="t-left"><div class="t-icon">₿</div><div><div class="t-sym">BTC/USD</div><div class="t-name">Bitcoin</div></div></div><div class="t-right"><div class="t-price">67,420</div><div class="t-chg chg-up">+2.34%</div></div></div>
-        <div class="ticker-row"><div class="t-left"><div class="t-icon">🥇</div><div><div class="t-sym">XAU/USD</div><div class="t-name">Gold Spot</div></div></div><div class="t-right"><div class="t-price">2,318</div><div class="t-chg chg-dn">-0.08%</div></div></div>
-        <div class="ticker-row"><div class="t-left"><div class="t-icon">📊</div><div><div class="t-sym">NAS100</div><div class="t-name">Nasdaq 100</div></div></div><div class="t-right"><div class="t-price">18,240</div><div class="t-chg chg-up">+0.67%</div></div></div>
-        <div class="ticker-row"><div class="t-left"><div class="t-icon">💷</div><div><div class="t-sym">GBP/USD</div><div class="t-name">Pound / Dollar</div></div></div><div class="t-right"><div class="t-price">1.2654</div><div class="t-chg chg-dn">-0.21%</div></div></div>
-        <div class="ticker-row"><div class="t-left"><div class="t-icon">Ξ</div><div><div class="t-sym">ETH/USD</div><div class="t-name">Ethereum</div></div></div><div class="t-right"><div class="t-price">3,512</div><div class="t-chg chg-up">+1.89%</div></div></div>
+        <div class="ticker-row"><div class="t-left"><div class="t-icon">ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â±</div><div><div class="t-sym">EUR/USD</div><div class="t-name">Euro / Dollar</div></div></div><div class="t-right"><div class="t-price">1.0842</div><div class="t-chg chg-up">+0.12%</div></div></div>
+        <div class="ticker-row"><div class="t-left"><div class="t-icon">ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¿</div><div><div class="t-sym">BTC/USD</div><div class="t-name">Bitcoin</div></div></div><div class="t-right"><div class="t-price">67,420</div><div class="t-chg chg-up">+2.34%</div></div></div>
+        <div class="ticker-row"><div class="t-left"><div class="t-icon">ÃƒÂ°Ã…Â¸Ã‚Â¥Ã¢â‚¬Â¡</div><div><div class="t-sym">XAU/USD</div><div class="t-name">Gold Spot</div></div></div><div class="t-right"><div class="t-price">2,318</div><div class="t-chg chg-dn">-0.08%</div></div></div>
+        <div class="ticker-row"><div class="t-left"><div class="t-icon">ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã…Â </div><div><div class="t-sym">NAS100</div><div class="t-name">Nasdaq 100</div></div></div><div class="t-right"><div class="t-price">18,240</div><div class="t-chg chg-up">+0.67%</div></div></div>
+        <div class="ticker-row"><div class="t-left"><div class="t-icon">ÃƒÂ°Ã…Â¸Ã¢â‚¬â„¢Ã‚Â·</div><div><div class="t-sym">GBP/USD</div><div class="t-name">Pound / Dollar</div></div></div><div class="t-right"><div class="t-price">1.2654</div><div class="t-chg chg-dn">-0.21%</div></div></div>
+        <div class="ticker-row"><div class="t-left"><div class="t-icon">ÃƒÅ½Ã…Â¾</div><div><div class="t-sym">ETH/USD</div><div class="t-name">Ethereum</div></div></div><div class="t-right"><div class="t-price">3,512</div><div class="t-chg chg-up">+1.89%</div></div></div>
       </div>
     </div>
   </div>
@@ -706,7 +711,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
       <div class="step reveal delay-2">
         <div class="step-num">02</div>
         <div class="step-title">Analyze the Market</div>
-        <div class="step-desc">A3-Elite maps structure, support/resistance zones, price action patterns, market phases and divergence alerts automatically — no manual work.</div>
+        <div class="step-desc">A3-Elite maps structure, support/resistance zones, price action patterns, market phases and divergence alerts automatically ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â no manual work.</div>
       </div>
       <div class="step reveal delay-3">
         <div class="step-num">03</div>
@@ -731,19 +736,19 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
     </div>
     <div class="testimonials">
       <div class="tcard reveal delay-1">
-        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-stars">ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦</div>
         <div class="tcard-text">"The support/resistance detection alone saved me hours of manual analysis. I went from 40% to 68% win rate in 6 weeks using the high-confidence signals."</div>
-        <div class="tcard-author"><div class="tcard-avatar">MK</div><div><div class="tcard-name">Marcus K.</div><div class="tcard-role">Forex Trader · London</div></div></div>
+        <div class="tcard-author"><div class="tcard-avatar">MK</div><div><div class="tcard-name">Marcus K.</div><div class="tcard-role">Forex Trader Ãƒâ€šÃ‚Â· London</div></div></div>
       </div>
       <div class="tcard reveal delay-2">
-        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-stars">ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦</div>
         <div class="tcard-text">"I've tried 6 different platforms. A3-Elite is the only one that actually explains WHY a signal is valid. The narrative report is a game changer."</div>
-        <div class="tcard-author"><div class="tcard-avatar">SR</div><div><div class="tcard-name">Sofia R.</div><div class="tcard-role">Crypto Trader · Dubai</div></div></div>
+        <div class="tcard-author"><div class="tcard-avatar">SR</div><div><div class="tcard-name">Sofia R.</div><div class="tcard-role">Crypto Trader Ãƒâ€šÃ‚Â· Dubai</div></div></div>
       </div>
       <div class="tcard reveal delay-3">
-        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-stars">ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦ÃƒÂ¢Ã‹Å“Ã¢â‚¬Â¦</div>
         <div class="tcard-text">"The Telegram alerts during London session are insane. I get notified before the move happens. This is the edge I was looking for."</div>
-        <div class="tcard-author"><div class="tcard-avatar">JT</div><div><div class="tcard-name">James T.</div><div class="tcard-role">Prop Trader · New York</div></div></div>
+        <div class="tcard-author"><div class="tcard-avatar">JT</div><div><div class="tcard-name">James T.</div><div class="tcard-role">Prop Trader Ãƒâ€šÃ‚Â· New York</div></div></div>
       </div>
     </div>
   </div>
@@ -760,7 +765,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
     <div class="pricing-grid">
       <div class="plan reveal delay-1">
         <div class="plan-name">FREE</div>
-        <div class="plan-price">€0<span>/month</span></div>
+        <div class="plan-price">ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬0<span>/month</span></div>
         <div class="plan-desc">Everything you need to start trading smarter today.</div>
         <button class="plan-btn" onclick="openAuth('signup','free')">GET STARTED FREE</button>
         <ul class="plan-features">
@@ -778,7 +783,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
       <div class="plan popular reveal delay-2">
         <div class="plan-badge">MOST POPULAR</div>
         <div class="plan-name">PRO</div>
-        <div class="plan-price">€12<span>/month</span></div>
+        <div class="plan-price">ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬12<span>/month</span></div>
         <div class="plan-desc">The full A3-Elite experience for serious traders.</div>
         <button class="plan-btn" onclick="openAuth('signup','pro')">START PRO TRIAL</button>
         <ul class="plan-features">
@@ -794,7 +799,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
       </div>
       <div class="plan reveal delay-3">
         <div class="plan-name">BUSINESS</div>
-        <div class="plan-price">€39<span>/month</span></div>
+        <div class="plan-price">ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬39<span>/month</span></div>
         <div class="plan-desc">For institutions, prop firms and high-volume traders.</div>
         <button class="plan-btn" onclick="openAuth('signup','business')">CONTACT SALES</button>
         <ul class="plan-features">
@@ -820,12 +825,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
     <div class="container">
       <h2 class="cta-title">Ready to trade like<br><em>Professional</em>?</h2>
       <p class="cta-sub">Join traders who use A3-Elite for institutional-grade analysis, automated signals, and real-time mobile alerts. Free to start.</p>
-      <button class="btn-primary" style="font-size:17px;padding:18px 44px;margin:0 auto" onclick="openAuth('signup')">🚀 CREATE FREE ACCOUNT</button>
+      <button class="btn-primary" style="font-size:17px;padding:18px 44px;margin:0 auto" onclick="openAuth('signup')">ÃƒÂ°Ã…Â¸Ã…Â¡Ã¢â€šÂ¬ CREATE FREE ACCOUNT</button>
       <div class="cta-trust">
-        <div class="trust-item"><span class="trust-icon">🔒</span>No credit card required</div>
-        <div class="trust-item"><span class="trust-icon">⚡</span>Live in 60 seconds</div>
-        <div class="trust-item"><span class="trust-icon">🌍</span>Works on any device</div>
-        <div class="trust-item"><span class="trust-icon">✅</span>Cancel anytime</div>
+        <div class="trust-item"><span class="trust-icon">ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ¢â‚¬â„¢</span>No credit card required</div>
+        <div class="trust-item"><span class="trust-icon">ÃƒÂ¢Ã…Â¡Ã‚Â¡</span>Live in 60 seconds</div>
+        <div class="trust-item"><span class="trust-icon">ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â</span>Works on any device</div>
+        <div class="trust-item"><span class="trust-icon">ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦</span>Cancel anytime</div>
       </div>
     </div>
   </div>
@@ -838,8 +843,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
       <span class="nav-logo">A3-ELITE INTELLIGENCE</span>
       <p>Institutional-grade market analysis for every trader. Built on professional market analysis concepts. Free forever.</p>
       <div class="footer-social">
-        <a href="https://x.com/uxui_arthur" target="_blank" class="fsoc">𝕏</a>
-        <a href="https://www.instagram.com/" target="_blank" class="fsoc">📷</a>
+        <a href="https://x.com/uxui_arthur" target="_blank" class="fsoc">ÃƒÂ°Ã‚ÂÃ¢â‚¬Â¢Ã‚Â</a>
+        <a href="https://www.instagram.com/" target="_blank" class="fsoc">ÃƒÂ°Ã…Â¸Ã¢â‚¬Å“Ã‚Â·</a>
         <a href="https://www.linkedin.com/" target="_blank" class="fsoc">in</a>
       </div>
     </div>
@@ -853,8 +858,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
     <div class="footer-col">
       <h4>PRICING</h4>
       <a href="#pricing">Free Plan</a>
-      <a href="#pricing">Pro — €12/mo</a>
-      <a href="#pricing">Business — €39/mo</a>
+      <a href="#pricing">Pro ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬12/mo</a>
+      <a href="#pricing">Business ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬39/mo</a>
     </div>
     <div class="footer-col">
       <h4>COMPANY</h4>
@@ -866,7 +871,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 A3-Elite Intelligence. All rights reserved.</span>
+    <span>Ãƒâ€šÃ‚Â© 2026 A3-Elite Intelligence. All rights reserved.</span>
     <span>Built for traders, by traders.</span>
   </div>
 </footer>
@@ -874,7 +879,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
 <!-- AUTH MODAL -->
 <div class="auth-overlay" id="auth-overlay">
   <div class="auth-box">
-    <button class="auth-close" onclick="closeAuth()">✕</button>
+    <button class="auth-close" onclick="closeAuth()">ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¢</button>
     <div class="auth-logo">A3-ELITE INTELLIGENCE</div>
     <div id="auth-signup">
       <div class="auth-title">Create your account</div>
@@ -887,12 +892,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
       <div class="auth-field">
         <label>Select Plan</label>
         <div class="auth-plan-grid">
-          <div class="auth-plan selected" data-plan="free" onclick="selectPlan('free')"><div class="auth-plan-name">FREE</div><div class="auth-plan-price">€0<span>/mo</span></div></div>
-          <div class="auth-plan" data-plan="pro" onclick="selectPlan('pro')"><div class="auth-plan-name">PRO</div><div class="auth-plan-price">€12<span>/mo</span></div></div>
-          <div class="auth-plan" data-plan="business" onclick="selectPlan('business')"><div class="auth-plan-name">BIZ</div><div class="auth-plan-price">€39<span>/mo</span></div></div>
+          <div class="auth-plan selected" data-plan="free" onclick="selectPlan('free')"><div class="auth-plan-name">FREE</div></div>
+          <div class="auth-plan" data-plan="pro" onclick="selectPlan('pro')"><div class="auth-plan-name">PRO</div></div>
+          <div class="auth-plan" data-plan="business" onclick="selectPlan('business')"><div class="auth-plan-name">BIZ</div></div>
         </div>
       </div>
-      <button class="auth-btn" id="signup-btn" onclick="doSignup()">CREATE ACCOUNT →</button>
+      <button class="auth-btn" id="signup-btn" onclick="doSignup()">CREATE ACCOUNT ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢</button>
       <div class="auth-switch">Already have an account? <a onclick="switchAuth('login')">Sign in</a></div>
     </div>
     <div id="auth-login" style="display:none">
@@ -901,14 +906,33 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
       <div class="auth-error" id="login-error"></div>
       <div class="auth-field"><label>Email</label><input type="email" id="login-email" placeholder="you@example.com"></div>
       <div class="auth-field"><label>Password</label><input type="password" id="login-password" placeholder="Your password"></div>
-      <button class="auth-btn" id="login-btn" onclick="doLogin()">SIGN IN →</button>
-      <div class="auth-switch">No account? <a onclick="switchAuth('signup')">Sign up free</a></div>
+      <button class="auth-btn" id="login-btn" onclick="doLogin()">SIGN IN ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢</button>
+      <div class="auth-switch">
+        <a onclick="switchAuth('signup')">Create account</a>
+        <span style="margin:0 8px;color:var(--text3)">|</span>
+        <a onclick="showForgotPassword()">Forgot password?</a>
+      </div>
+      <div class="auth-or"><div class="or-line"></div><span class="or-text">Or continue with</span><div class="or-line"></div></div>
+      <div class="auth-oauth">
+        <button type="button" class="oauth-btn" onclick="oauthLogin('google')">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Google
+        </button>
+        <button type="button" class="oauth-btn" onclick="oauthLogin('github')">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="#f5f5f5"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </button>
+        <button type="button" class="oauth-btn" onclick="oauthLogin('apple')">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="#f5f5f5"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.74 1.18 0 2.45-1.02 3.97-1.08 1.2-.06 2.29.51 3.07 1.66-2.89 1.73-2.37 5.69.35 6.99-.64 1.83-1.6 3.64-2.33 4.87-.74 1.24-1.19 1.83-1.93 1.83zM12.03 5.27c.57-1.43.93-3.09.98-4.73-1.46.05-2.97.79-4.03 2.06-1.06 1.26-1.64 2.94-1.54 4.63 1.53.09 3.05-.74 4.59-1.96z"/></svg>
+          Apple
+        </button>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
-// ── HERO CANVAS — Framer design token exact visual ───────────────────────
+// ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ HERO CANVAS ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Framer design token exact visual ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬
 // Tokens: #00ffb2 (neon green), #ff0066 (hot pink), #08070e (bg)
 const canvas = document.getElementById('hero-canvas');
 const ctx = canvas.getContext('2d');
@@ -936,11 +960,11 @@ function initParticles() {
 function drawFrame() {
   ft += 0.004;
 
-  // ── Base: exact #08070e ──
+  // ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ Base: exact #08070e ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬
   ctx.fillStyle = '#08070e';
   ctx.fillRect(0, 0, W, H);
 
-  // ── Primary neon green orb — top-center, large breathing glow ──
+  // ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ Primary neon green orb ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â top-center, large breathing glow ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬
   const pulse = 0.5 + Math.sin(ft * 1.1) * 0.5;
   const cx = W * .5 + Math.sin(ft * .4) * W * .04;
   const cy = H * .12 + Math.cos(ft * .3) * H * .03;
@@ -962,7 +986,7 @@ function drawFrame() {
   ctx.fillStyle = g1c;
   ctx.fillRect(0, 0, W, H);
 
-  // ── Hot pink accent — bottom-left drifting ──
+  // ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ Hot pink accent ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â bottom-left drifting ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬
   const px = W * .08 + Math.sin(ft * .6) * W * .06;
   const py = H * .72 + Math.cos(ft * .45) * H * .05;
   const g2 = ctx.createRadialGradient(px, py, 0, px, py, W * .28);
@@ -972,7 +996,7 @@ function drawFrame() {
   ctx.fillStyle = g2;
   ctx.fillRect(0, 0, W, H);
 
-  // ── Secondary green — right side ──
+  // ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ Secondary green ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â right side ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬
   const rx = W * .88 + Math.sin(ft * .5 + 2) * W * .05;
   const ry = H * .38 + Math.cos(ft * .7) * H * .06;
   const g3 = ctx.createRadialGradient(rx, ry, 0, rx, ry, W * .22);
@@ -982,14 +1006,14 @@ function drawFrame() {
   ctx.fillStyle = g3;
   ctx.fillRect(0, 0, W, H);
 
-  // ── Vignette ──
+  // ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ Vignette ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬
   const vign = ctx.createRadialGradient(W*.5, H*.5, H*.15, W*.5, H*.5, H*.95);
   vign.addColorStop(0, 'rgba(0,0,0,0)');
   vign.addColorStop(1, 'rgba(8,7,14,0.65)');
   ctx.fillStyle = vign;
   ctx.fillRect(0, 0, W, H);
 
-  // ── Particles ──
+  // ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ Particles ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬
   for (let i = 0; i < particles.length; i++) {
     const p = particles[i];
     p.x += p.vx; p.y += p.vy;
@@ -1019,14 +1043,14 @@ window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.cli
 window.addEventListener('resize', () => { resize(); initParticles(); });
 resize(); initParticles(); drawFrame();
 
-// ── NAV SCROLL ────────────────────────────────────────────────────────────
+// ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ NAV SCROLL ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
   revealElements();
   parallaxHero();
 });
 
-// ── PARALLAX HERO ─────────────────────────────────────────────────────────
+// ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ PARALLAX HERO ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬
 function parallaxHero() {
   const sy = window.scrollY;
   const grid = document.querySelector('.hero-grid');
@@ -1036,7 +1060,7 @@ function parallaxHero() {
   if (content) content.style.opacity = Math.max(0.8, 1 - sy / 800);
 }
 
-// ── MOUSE PARALLAX on hero glows ──────────────────────────────────────────
+// ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ MOUSE PARALLAX on hero glows ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬
 document.addEventListener('mousemove', e => {
   const xPct = (e.clientX / window.innerWidth - .5) * 2;
   const yPct = (e.clientY / window.innerHeight - .5) * 2;
@@ -1051,7 +1075,7 @@ document.addEventListener('mousemove', e => {
 });
 </script>
 <script>
-// ── SCROLL REVEAL ─────────────────────────────────────────────────────────
+// ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ SCROLL REVEAL ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬
 function revealElements() {
   document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => {
     const rect = el.getBoundingClientRect();
@@ -1060,7 +1084,7 @@ function revealElements() {
 }
 revealElements();
 
-// ── COUNTER ANIMATION ─────────────────────────────────────────────────────
+// ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ COUNTER ANIMATION ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬
 function animateCounters() {
   document.querySelectorAll('[data-count]').forEach(el => {
     const target = parseInt(el.dataset.count);
@@ -1075,7 +1099,7 @@ function animateCounters() {
 }
 setTimeout(animateCounters, 600);
 
-// ── MOBILE NAV ────────────────────────────────────────────────────────────
+// ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ MOBILE NAV ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬
 function toggleMobileNav() {
   const links = document.querySelector('.nav-links');
   const isOpen = links.style.display === 'flex';
@@ -1083,7 +1107,7 @@ function toggleMobileNav() {
     'display:flex;flex-direction:column;position:fixed;top:60px;left:0;right:0;background:rgba(6,11,20,.97);padding:24px;border-bottom:1px solid var(--border);gap:20px;z-index:199;backdrop-filter:blur(20px)';
 }
 
-// ── AUTH ──────────────────────────────────────────────────────────────────
+// ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ AUTH ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬ÃƒÂ¢Ã¢â‚¬ÂÃ¢â€šÂ¬
 const SUPABASE_URL = 'https://rvjelddscvscsixvkngr.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_L7zt01EEtWgU6pvo0gqQmw_e_v9Gwn-';
 const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
@@ -1138,7 +1162,7 @@ async function doSignup() {
   if (pass.length < 8) { showErr(errEl, 'Password must be at least 8 characters.'); return; }
   btn.disabled = true; btn.textContent = 'CREATING ACCOUNT...';
   const { error } = await sb.auth.signUp({ email, password: pass, options: { data: { full_name: name, plan: selectedPlan } } });
-  btn.disabled = false; btn.textContent = 'CREATE ACCOUNT →';
+  btn.disabled = false; btn.textContent = 'CREATE ACCOUNT ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢';
   if (error) { showErr(errEl, error.message); return; }
   okEl.textContent = 'Account created! Check your email to confirm, then you\'ll be redirected.';
   okEl.style.display = 'block';
@@ -1153,36 +1177,22 @@ async function doLogin() {
   if (!email || !pass) { showErr(errEl, 'Please enter your email and password.'); return; }
   btn.disabled = true; btn.textContent = 'SIGNING IN...';
   const { error } = await sb.auth.signInWithPassword({ email, password: pass });
-  btn.disabled = false; btn.textContent = 'SIGN IN →';
+  btn.disabled = false; btn.textContent = 'SIGN IN ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢';
   if (error) showErr(errEl, error.message);
 }
 
 function showErr(el, msg) { el.textContent = msg; el.style.display = 'block'; }
-</script>
-</body>
-</html>
+
 // ── FORGOT PASSWORD ────────────────────────────────────────────────────────
 function showForgotPassword() {
-  const errEl = document.getElementById('login-error');
-  const okEl = document.getElementById('login-success');
-  const btn = document.getElementById('login-btn');
-  
-  errEl.style.display = 'none';
-  if (okEl) okEl.style.display = 'none';
-  
-  // Replace form with forgot password form
-  const loginForm = document.getElementById('auth-login');
-  const originalHTML = loginForm.innerHTML;
-  loginForm.innerHTML = `
+  document.getElementById('auth-login').innerHTML = `
     <div class="auth-title">Reset Password</div>
     <div class="auth-sub">Enter your email and we'll send you a reset link.</div>
     <div class="auth-error" id="forgot-error"></div>
     <div class="auth-success" id="forgot-success"></div>
     <div class="auth-field"><label>Email</label><input type="email" id="forgot-email" placeholder="you@example.com"></div>
     <button class="auth-btn" id="forgot-btn" onclick="sendResetEmail()">SEND RESET LINK</button>
-    <div class="auth-switch">
-      <a onclick="switchAuth('login')">Back to Sign In</a>
-    </div>
+    <div class="auth-switch"><a onclick="switchAuth('login')">← Back to Sign In</a></div>
   `;
 }
 
@@ -1191,121 +1201,28 @@ async function sendResetEmail() {
   const errEl = document.getElementById('forgot-error');
   const okEl = document.getElementById('forgot-success');
   const btn = document.getElementById('forgot-btn');
-  
-  errEl.style.display = 'none';
-  if (okEl) okEl.style.display = 'none';
-  
-  if (!email) {
-    showErr(errEl, 'Please enter your email address.');
-    return;
-  }
-  
-  btn.disabled = true;
-  btn.textContent = 'SENDING RESET LINK...';
-  
+  errEl.style.display = 'none'; okEl.style.display = 'none';
+  if (!email) { showErr(errEl, 'Please enter your email address.'); return; }
+  btn.disabled = true; btn.textContent = 'SENDING...';
   const { error } = await sb.auth.resetPasswordForEmail(email, {
     redirectTo: `${window.location.origin}/index.html`
   });
-  
-  btn.disabled = false;
-  btn.textContent = 'SEND RESET LINK';
-  
-  if (error) {
-    showErr(errEl, error.message);
-    return;
-  }
-  
-  if (okEl) {
-    okEl.textContent = 'Reset link sent! Please check your email.';
-    okEl.style.display = 'block';
-  }
+  btn.disabled = false; btn.textContent = 'SEND RESET LINK';
+  if (error) { showErr(errEl, error.message); return; }
+  okEl.textContent = 'Reset link sent! Check your email.';
+  okEl.style.display = 'block';
 }
 
-function showErr(el, msg) { el.textContent = msg; el.style.display = 'block'; }
 // ── OAUTH LOGIN ────────────────────────────────────────────────────────────
 async function oauthLogin(provider) {
   const errEl = document.getElementById('login-error');
-  const btn = document.getElementById('login-btn');
-  
   if (errEl) errEl.style.display = 'none';
-  if (btn) {
-    btn.disabled = true;
-    btn.textContent = `AUTHENTICATING WITH ${provider.toUpperCase()}...`;
-  }
-  
   const { error } = await sb.auth.signInWithOAuth({
-    provider: provider,
-    options: {
-      redirectTo: `${window.location.origin}/index.html`
-    }
+    provider,
+    options: { redirectTo: `${window.location.origin}/index.html` }
   });
-  
-  if (btn) {
-    btn.disabled = false;
-    btn.textContent = 'SIGN IN →';
-  }
-  
-  if (error) {
-    const errContainer = document.getElementById('login-error');
-    if (errContainer) {
-      errContainer.textContent = 'Authentication failed. Please try again.';
-      errContainer.style.display = 'block';
-    }
-  }
+  if (error && errEl) showErr(errEl, 'Authentication failed. Please try again.');
 }
-.auth-switch{text-align:center;margin-top:18px;font-size:14px;color:var(--text2)}
-.auth-switch a{color:var(--accent);cursor:pointer;text-decoration:underline}
-.auth-switch span{margin:0 8px;color:var(--text3)}
-.auth-or{
-  display:flex;
-  align-items:center;
-  text-align:center;
-  margin:24px 0;
-  gap:16px;
-}
-.auth-or .or-line{
-  flex:1;
-  height:1px;
-  background:rgba(255,255,255,0.08);
-}
-.auth-or .or-text{
-  font-size:12px;
-  color:var(--text3);
-  font-family:var(--mono);
-  letter-spacing:1px;
-  text-transform:uppercase;
-}
-.auth-oauth{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin-bottom:24px;
-}
-.oauth-btn{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  background:rgba(8,7,14,0.5);
-  border:1px solid rgba(255,255,255,0.08);
-  color:var(--text);
-  padding:12px;
-  border-radius:10px;
-  font-size:13px;
-  font-weight:600;
-  cursor:pointer;
-  transition:all .3s;
-  backdrop-filter:blur(10px);
-}
-.oauth-btn:hover{
-  border-color:var(--accent);
-  background:rgba(0,255,178,0.05);
-  transform:translateY(-2px);
-}
-.oauth-btn.google svg path:first-child{fill:#4285F4}
-.oauth-btn.google svg path:nth-child(2){fill:#34A853}
-.oauth-btn.google svg path:nth-child(3){fill:#FBBC05}
-.oauth-btn.google svg path:last-child{fill:#EA4335}
-.oauth-btn.github svg path{fill:#f5f5f5}
-.oauth-btn.apple svg path{fill:#f5f5f5}
-      <div class="auth-success" id="login-success"></div>
+</script>
+</body>
+</html>

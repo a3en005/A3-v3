@@ -495,3 +495,157 @@ function switchAuth(mode) {
 </script>
 </body>
 </html>
+.auth-or{
+  display:flex;
+  align-items:center;
+  text-align:center;
+  margin:24px 0;
+  gap:16px;
+}
+.auth-or .or-line{
+  flex:1;
+  height:1px;
+  background:rgba(255,255,255,0.08);
+}
+.auth-or .or-text{
+  font-size:12px;
+  color:var(--text3);
+  font-family:var(--mono);
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.auth-oauth{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-bottom:24px;
+}
+.oauth-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:rgba(8,7,14,0.5);
+  border:1px solid rgba(255,255,255,0.08);
+  color:var(--text);
+  padding:12px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+  transition:all .3s;
+  backdrop-filter:blur(10px);
+}
+.oauth-btn:hover{
+  border-color:var(--accent);
+  background:rgba(0,255,178,0.05);
+  transform:translateY(-2px);
+}
+.oauth-btn.google svg path:first-child{fill:#4285F4}
+.oauth-btn.google svg path:nth-child(2){fill:#34A853}
+.oauth-btn.google svg path:nth-child(3){fill:#FBBC05}
+.oauth-btn.google svg path:last-child{fill:#EA4335}
+.oauth-btn.github svg path{fill:#f5f5f5}
+.oauth-btn.apple svg path{fill:#f5f5f5}
+
+.auth-forgot{
+  text-align:center;
+  margin-top:20px;
+}
+.auth-forgot a{
+  font-size:13px;
+  color:var(--text2);
+  text-decoration:underline;
+  transition:color .2s;
+}
+.auth-forgot a:hover{color:var(--accent)}
+// ── OAUTH LOGIN ────────────────────────────────────────────────────────────
+async function oauthLogin(provider) {
+  const errEl = document.getElementById('signup-error');
+  const btn = document.getElementById('signup-btn');
+  
+  errEl.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = `AUTHENTICATING WITH ${provider.toUpperCase()}...`;
+  
+  const { error } = await sb.auth.signInWithOAuth({
+    provider: provider,
+    options: {
+      redirectTo: `${window.location.origin}/index.html`
+    }
+  });
+  
+  btn.disabled = false;
+  btn.textContent = 'CREATE ACCOUNT';
+  
+  if (error) {
+    showErr(errEl, 'Authentication failed. Please try again.');
+  }
+}
+
+// ── FORGOT PASSWORD ────────────────────────────────────────────────────────
+function switchAuth(mode) {
+  if (mode === 'login') {
+    window.location.href = 'index.html';
+  } else if (mode === 'forgot') {
+    showForgotPassword();
+  }
+}
+
+function showForgotPassword() {
+  const container = document.querySelector('.auth-container');
+  const form = document.getElementById('signup-form');
+  const errEl = document.getElementById('signup-error');
+  const okEl = document.getElementById('signup-success');
+  
+  errEl.style.display = 'none';
+  okEl.style.display = 'none';
+  
+  // Replace form with forgot password form
+  form.innerHTML = `
+    <div class="auth-field">
+      <label>Email Address</label>
+      <input type="email" id="forgot-email" placeholder="Enter your email" required>
+    </div>
+    
+    <button type="button" class="auth-btn" id="forgot-btn" onclick="sendResetEmail()">SEND RESET LINK</button>
+    
+    <div class="auth-switch">
+      <a onclick="switchAuth('login')">Back to Sign In</a>
+    </div>
+  `;
+}
+
+async function sendResetEmail() {
+  const email = document.getElementById('forgot-email').value.trim();
+  const errEl = document.getElementById('signup-error');
+  const okEl = document.getElementById('signup-success');
+  const btn = document.getElementById('forgot-btn');
+  
+  errEl.style.display = 'none';
+  okEl.style.display = 'none';
+  
+  if (!email) {
+    showErr(errEl, 'Please enter your email address.');
+    return;
+  }
+  
+  btn.disabled = true;
+  btn.textContent = 'SENDING RESET LINK...';
+  
+  const { error } = await sb.auth.resetPasswordForEmail(email, {
+    redirectTo: `${window.location.origin}/index.html`
+  });
+  
+  btn.disabled = false;
+  btn.textContent = 'SEND RESET LINK';
+  
+  if (error) {
+    showErr(errEl, error.message);
+    return;
+  }
+  
+  okEl.textContent = 'Reset link sent! Please check your email.';
+  okEl.style.display = 'block';
+}

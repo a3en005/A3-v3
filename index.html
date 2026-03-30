@@ -9,6 +9,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Inter+Display:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/SplitText.min.js"></script>
 <style>
 :root{
   --bg:#08070e;--bg2:#0d0c18;--bg3:#111020;
@@ -337,6 +340,167 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
 .oauth-btn:hover{border-color:var(--accent);color:var(--text);background:rgba(0,255,178,.05);transform:translateY(-1px)}
 @media(max-width:480px){.auth-box{padding:24px 20px}}
 </style>
+
+<style>
+/* ── SPATIAL UI & Z-AXIS LAYERING ── */
+
+/* Scene root — every section gets a 3D stage */
+.spatial-scene{
+  transform-style:preserve-3d;
+  perspective:1200px;
+}
+
+/* Z-layer depth classes */
+.z-back   { transform:translateZ(-40px) scale(1.04); }
+.z-mid    { transform:translateZ(0px); }
+.z-front  { transform:translateZ(40px) scale(0.96); }
+.z-float  { transform:translateZ(60px) scale(0.94); }
+
+/* Floating card — applied to feat-cards, steps, tcards */
+.spatial-card{
+  transform-style:preserve-3d;
+  transform:perspective(800px) rotateX(0deg) rotateY(0deg) translateZ(0px);
+  transition:transform .15s ease-out, box-shadow .3s ease, border-color .3s ease;
+  will-change:transform;
+}
+.spatial-card:hover{
+  box-shadow:
+    0 30px 60px rgba(0,0,0,.5),
+    0 0 40px rgba(0,255,178,.08),
+    inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+/* Inner shine layer — creates depth illusion */
+.spatial-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  background:linear-gradient(135deg,rgba(255,255,255,.04) 0%,transparent 60%);
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .3s;
+}
+.spatial-card:hover::after{ opacity:1; }
+
+/* Floating ambient layers behind sections */
+.depth-layer{
+  position:absolute;
+  pointer-events:none;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:0;
+  transition:opacity 1s ease;
+}
+.depth-layer.visible{ opacity:1; }
+
+/* Section entrance — slides in from Z depth */
+.z-reveal{
+  opacity:0;
+  transform:perspective(800px) translateZ(-60px) translateY(30px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+.z-reveal.visible{
+  opacity:1;
+  transform:perspective(800px) translateZ(0px) translateY(0px);
+}
+.z-reveal.delay-1{ transition-delay:.1s }
+.z-reveal.delay-2{ transition-delay:.2s }
+.z-reveal.delay-3{ transition-delay:.3s }
+.z-reveal.delay-4{ transition-delay:.4s }
+
+/* Floating badge — pops forward on hover */
+.feat-tag{
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.feat-card:hover .feat-tag{
+  transform:translateZ(20px) translateY(-2px);
+  box-shadow:0 4px 16px rgba(0,255,178,.2);
+}
+
+/* Section title depth pop */
+.section-title{
+  transition:transform .4s ease;
+}
+.why-header:hover .section-title,
+.how-header:hover .section-title,
+.proof-header:hover .section-title{
+  transform:perspective(600px) translateZ(12px);
+}
+
+/* Pricing card depth */
+.plan{
+  transform-style:preserve-3d;
+  transform:perspective(1000px) rotateX(0deg) rotateY(0deg);
+  transition:transform .2s ease-out, box-shadow .3s ease;
+  will-change:transform;
+}
+.plan.popular{
+  transform:perspective(1000px) translateZ(20px);
+}
+.plan.popular:hover{
+  transform:perspective(1000px) translateZ(30px) rotateX(-1deg);
+}
+
+/* Step cards */
+.step{
+  transform-style:preserve-3d;
+  transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.step:hover{
+  transform:perspective(800px) rotateX(-3deg) translateZ(16px) translateY(-4px);
+  box-shadow:0 24px 48px rgba(0,0,0,.4), 0 0 30px rgba(0,255,178,.06);
+}
+
+/* Testimonial cards */
+.tcard{
+  transform-style:preserve-3d;
+  transition:transform .3s ease, border-color .3s ease;
+}
+.tcard:hover{
+  transform:perspective(800px) rotateX(-2deg) rotateY(1deg) translateZ(12px);
+}
+
+/* Live panel depth */
+.live-panel{
+  transform-style:preserve-3d;
+  transform:perspective(1000px) rotateY(2deg) rotateX(1deg);
+  transition:transform .4s ease;
+}
+.live-panel:hover{
+  transform:perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(10px);
+}
+
+/* Ticker row micro-lift */
+.ticker-row{
+  transition:transform .2s ease, border-color .2s ease, background .2s ease;
+}
+.ticker-row:hover{
+  transform:translateX(4px) translateZ(8px);
+  background:rgba(0,255,178,.04);
+}
+
+/* Nav logo depth */
+.nav-logo{
+  transition:transform .3s ease;
+}
+.nav-logo:hover{
+  transform:perspective(400px) translateZ(8px);
+}
+
+/* CTA section depth */
+.cta-title{
+  transition:transform .4s ease;
+}
+#cta:hover .cta-title{
+  transform:perspective(600px) translateZ(16px);
+}
+
+/* Scroll-driven Z parallax layers */
+.parallax-z-1{ will-change:transform; }
+.parallax-z-2{ will-change:transform; }
+.parallax-z-3{ will-change:transform; }
+</style>
 </head>
 <body>
 
@@ -413,7 +577,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
 <!-- WHY SECTION -->
 <section id="why">
   <div class="container">
-    <div class="why-header reveal">
+    <div class="why-header reveal z-reveal">
       <div class="section-tag">WHY A3-ELITE</div>
       <h2 class="section-title">Everything a serious trader needs</h2>
       <p class="section-sub">Built on professional market analysis concepts — the same tools used by hedge funds and prop desks, now accessible to every trader.</p>
@@ -698,7 +862,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
 <!-- HOW IT WORKS -->
 <section id="how">
   <div class="container">
-    <div class="how-header reveal">
+    <div class="how-header reveal z-reveal">
       <div class="section-tag">HOW IT WORKS</div>
       <h2 class="section-title">From open to signal in 60 seconds</h2>
       <p class="section-sub" style="margin:0 auto">A streamlined workflow that removes guesswork and puts institutional analysis at your fingertips.</p>
@@ -731,7 +895,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
 <!-- SOCIAL PROOF -->
 <section id="proof">
   <div class="container">
-    <div class="proof-header reveal">
+    <div class="proof-header reveal z-reveal">
       <div class="section-tag" style="justify-content:center">TRUSTED BY TRADERS</div>
       <h2 class="section-title">Real results from real traders</h2>
     </div>
@@ -758,7 +922,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
 <!-- PRICING -->
 <section id="pricing">
   <div class="container">
-    <div class="pricing-header reveal">
+    <div class="pricing-header reveal z-reveal">
       <div class="section-tag" style="justify-content:center">PRICING</div>
       <h2 class="section-title">Start free. Scale when ready.</h2>
       <p class="section-sub">No credit card required. No hidden fees. Upgrade or downgrade anytime.</p>
@@ -1058,8 +1222,6 @@ resize(); initParticles(); drawFrame();
 // ── NAV SCROLL ────────────────────────────────────────────────────────────
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
-  revealElements();
-  parallaxHero();
 });
 
 // ── PARALLAX HERO ─────────────────────────────────────────────────────────
@@ -1090,6 +1252,11 @@ document.addEventListener('mousemove', e => {
 // ── SCROLL REVEAL ─────────────────────────────────────────────────────────
 function revealElements() {
   document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight * .88) el.classList.add('visible');
+  });
+  // Z-axis reveal
+  document.querySelectorAll('.z-reveal').forEach(el => {
     const rect = el.getBoundingClientRect();
     if (rect.top < window.innerHeight * .88) el.classList.add('visible');
   });
@@ -1194,6 +1361,99 @@ async function doLogin() {
 }
 
 function showErr(el, msg) { el.textContent = msg; el.style.display = 'block'; }
+
+// ── SPATIAL UI — 3D CARD TILT ENGINE ──────────────────────────────────────
+function initSpatialCards() {
+  const cards = document.querySelectorAll('.feat-card, .tcard, .plan, .step');
+  cards.forEach(card => {
+    card.classList.add('spatial-card');
+
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const cx = rect.left + rect.width  / 2;
+      const cy = rect.top  + rect.height / 2;
+      const dx = (e.clientX - cx) / (rect.width  / 2); // -1 to 1
+      const dy = (e.clientY - cy) / (rect.height / 2); // -1 to 1
+      const rotX = dy * -8;  // max 8deg tilt
+      const rotY = dx *  8;
+      const tz   = 16;       // pop forward 16px
+      card.style.transform =
+        `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(${tz}px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform =
+        `perspective(800px) rotateX(0deg) rotateY(0deg) translateZ(0px)`;
+    });
+  });
+}
+
+// ── SPATIAL UI — Z PARALLAX ON SCROLL ─────────────────────────────────────
+function spatialParallax() {
+  const sy = window.scrollY;
+
+  // Hero glows drift at different Z speeds
+  const g3 = document.querySelector('.hero-glow-3');
+  if (g3) g3.style.transform = `translateY(${sy * -.08}px)`;
+
+  // Feature cards section — subtle Z drift
+  document.querySelectorAll('.feat-card').forEach((card, i) => {
+    const speed = 0.02 + (i % 3) * 0.01;
+    const rect  = card.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (inView) {
+      const offset = (window.innerHeight / 2 - rect.top - rect.height / 2) * speed;
+      card.style.setProperty('--z-offset', `${offset}px`);
+    }
+  });
+
+  // Steps — staggered depth
+  document.querySelectorAll('.step').forEach((step, i) => {
+    const rect = step.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (inView) {
+      const offset = (window.innerHeight / 2 - rect.top) * 0.015;
+      step.style.boxShadow = `0 ${12 + offset}px ${32 + offset * 2}px rgba(0,0,0,.4)`;
+    }
+  });
+}
+
+// ── SPATIAL UI — SECTION DEPTH AMBIENT GLOW ───────────────────────────────
+function initDepthLayers() {
+  const sections = ['#why', '#preview', '#how', '#proof', '#pricing', '#cta'];
+  const colors   = [
+    'rgba(0,255,178,.06)', 'rgba(14,165,233,.06)', 'rgba(167,139,250,.05)',
+    'rgba(251,191,36,.04)', 'rgba(0,255,178,.05)', 'rgba(167,139,250,.06)'
+  ];
+
+  sections.forEach((sel, i) => {
+    const section = document.querySelector(sel);
+    if (!section) return;
+    const layer = document.createElement('div');
+    layer.className = 'depth-layer';
+    layer.style.cssText = `
+      width:600px; height:600px;
+      top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      background:radial-gradient(circle, ${colors[i]} 0%, transparent 70%);
+    `;
+    section.style.position = 'relative';
+    section.appendChild(layer);
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => layer.classList.toggle('visible', e.isIntersecting));
+    }, { threshold: 0.2 });
+    obs.observe(section);
+  });
+}
+
+// ── INIT ───────────────────────────────────────────────────────────────────
+window.addEventListener('scroll', spatialParallax);
+document.addEventListener('DOMContentLoaded', () => {
+  initSpatialCards();
+  initDepthLayers();
+  spatialParallax();
+});
 
 // ── FORGOT PASSWORD ────────────────────────────────────────────────────────
 function showForgotPassword() {

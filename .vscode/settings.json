@@ -19,6 +19,7 @@
         "Select-String -Path \"index.html\" -Pattern \"auth-overlay|auth-plan|auth-signup|AUTH MODAL\" | Select-Object LineNumber, Line",
         "git diff HEAD --stat",
         "(Get-Content \"index.html\").Count",
-        "Select-String -Path \"index.html\" -Pattern \"showForgotPassword|oauthLogin|sendResetEmail\" | Select-Object LineNumber, Line"
+        "Select-String -Path \"index.html\" -Pattern \"showForgotPassword|oauthLogin|sendResetEmail\" | Select-Object LineNumber, Line",
+        "Select-String -Path \"index.html\" -Pattern \"Professional|Turn complex|Market Structure|High-confidence|showForgotPassword|oauthLogin\" | Select-Object LineNumber, Line | Select-Object -First 20"
     ]
 }

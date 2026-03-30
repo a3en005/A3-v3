@@ -344,6 +344,12 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
 .or-text{font-size:11px;color:var(--text3);font-family:var(--mono);letter-spacing:1px;white-space:nowrap}
 .auth-oauth{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:4px}
 .oauth-btn{display:flex;align-items:center;justify-content:center;gap:6px;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:10px 8px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;font-family:var(--font)}
+.oauth-btn:hover{border-color:var(--accent);background:rgba(0,255,178,0.05);transform:translateY(-1px)}
+.auth-or{display:flex;align-items:center;gap:12px;margin:20px 0}
+.or-line{flex:1;height:1px;background:var(--border)}
+.or-text{font-size:11px;color:var(--text3);font-family:var(--mono);letter-spacing:1px;white-space:nowrap}
+.auth-oauth{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:4px}
+.oauth-btn{display:flex;align-items:center;justify-content:center;gap:6px;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:10px 8px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;font-family:var(--font)}
 .oauth-btn:hover{border-color:var(--accent);background:rgba(0,255,178,0.05);transform:translateY(-1px)};border:1px solid rgba(255,60,90,.3);color:var(--bear);font-size:13px;padding:10px 14px;border-radius:6px;margin-bottom:16px;display:none}
 .auth-success{background:rgba(16,217,144,.1);border:1px solid rgba(16,217,144,.3);color:var(--bull);font-size:13px;padding:10px 14px;border-radius:6px;margin-bottom:16px;display:none}
 @media(max-width:480px){.auth-box{padding:24px 20px}}
@@ -879,6 +885,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
       <a href="#">Blog</a>
       <a href="signup.html">Sign Up</a>
       <a href="signup.html">Sign Up</a>
+      <a href="signup.html">Sign Up</a>
       <a href="#">Privacy Policy</a>
       <a href="#">Terms of Service</a>
     </div>
@@ -913,7 +920,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
       <button class="auth-btn" id="signup-btn" onclick="doSignup()">CREATE ACCOUNT ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢</button>
       <div class="auth-switch">Already have an account? <a onclick="switchAuth('login')">Sign in</a></div>
     </div>
-        <div id="auth-login" style="display:none">
+            <div id="auth-login" style="display:none">
       <div class="auth-title">Welcome back</div>
       <div class="auth-sub">Sign in to access your dashboard.</div>
       <div class="auth-error" id="login-error"></div>
@@ -934,6 +941,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:72px 40p
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 
@@ -1188,6 +1196,47 @@ async function doLogin() {
 }
 
 function showErr(el, msg) { el.textContent = msg; el.style.display = 'block'; }
+
+// -- FORGOT PASSWORD --
+function showForgotPassword() {
+  document.getElementById('auth-login').innerHTML = `
+    <div class="auth-title">Reset Password</div>
+    <div class="auth-sub">Enter your email and we'll send you a reset link.</div>
+    <div class="auth-error" id="forgot-error"></div>
+    <div class="auth-success" id="forgot-success"></div>
+    <div class="auth-field"><label>Email</label><input type="email" id="forgot-email" placeholder="you@example.com"></div>
+    <button class="auth-btn" id="forgot-btn" onclick="sendResetEmail()">SEND RESET LINK</button>
+    <div class="auth-switch"><a onclick="switchAuth('login')">Back to Sign In</a></div>
+  `;
+}
+
+async function sendResetEmail() {
+  const email = document.getElementById('forgot-email').value.trim();
+  const errEl = document.getElementById('forgot-error');
+  const okEl = document.getElementById('forgot-success');
+  const btn = document.getElementById('forgot-btn');
+  errEl.style.display = 'none'; okEl.style.display = 'none';
+  if (!email) { showErr(errEl, 'Please enter your email address.'); return; }
+  btn.disabled = true; btn.textContent = 'SENDING...';
+  const { error } = await sb.auth.resetPasswordForEmail(email, {
+    redirectTo: `${window.location.origin}/index.html`
+  });
+  btn.disabled = false; btn.textContent = 'SEND RESET LINK';
+  if (error) { showErr(errEl, error.message); return; }
+  okEl.textContent = 'Reset link sent! Check your email.';
+  okEl.style.display = 'block';
+}
+
+// -- OAUTH LOGIN --
+async function oauthLogin(provider) {
+  const errEl = document.getElementById('login-error');
+  if (errEl) errEl.style.display = 'none';
+  const { error } = await sb.auth.signInWithOAuth({
+    provider,
+    options: { redirectTo: `${window.location.origin}/index.html` }
+  });
+  if (error && errEl) showErr(errEl, 'Authentication failed. Please try again.');
+}
 
 // -- FORGOT PASSWORD --
 function showForgotPassword() {

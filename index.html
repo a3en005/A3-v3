@@ -1300,7 +1300,7 @@ sb.auth.onAuthStateChange((event, session) => {
       <button onclick="sb.auth.signOut()" style="background:none;border:1px solid var(--border2);color:var(--text2);padding:6px 14px;border-radius:4px;font-size:12px;cursor:pointer">SIGN OUT</button>
       <a href="#home" class="nav-cta">HOME</a>
     </div>`;
-    if (event === 'SIGNED_IN') { closeAuth(); setTimeout(() => window.location.href = '#home', 300); }
+    if (event === 'SIGNED_IN') { closeAuth(); setTimeout(() => window.location.href = 'app.html', 300); }
   } else {
     area.innerHTML = `<button class="nav-cta" onclick="openAuth('signup')">GET STARTED FREE</button>`;
   }
@@ -1477,7 +1477,7 @@ async function sendResetEmail() {
   if (!email) { showErr(errEl, 'Please enter your email address.'); return; }
   btn.disabled = true; btn.textContent = 'SENDING...';
   const { error } = await sb.auth.resetPasswordForEmail(email, {
-    redirectTo: `${window.location.origin}/index.html`
+    redirectTo: `${window.location.origin}/app.html`
   });
   btn.disabled = false; btn.textContent = 'SEND RESET LINK';
   if (error) { showErr(errEl, error.message); return; }
@@ -1489,7 +1489,7 @@ async function sendResetEmail() {
 async function oauthLogin(provider) {
   const { error } = await sb.auth.signInWithOAuth({
     provider,
-    options: { redirectTo: `${window.location.origin}/index.html` }
+    options: { redirectTo: `${window.location.origin}/app.html` }
   });
   if (error) {
     const errEl = document.getElementById('login-error') || document.getElementById('signup-error');

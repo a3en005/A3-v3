@@ -459,7 +459,7 @@ document.getElementById('signup-form').addEventListener('submit', async (e) => {
     password: pass,
     options: {
       data: { full_name: name, plan: selectedPlan },
-      emailRedirectTo: `${window.location.origin}/index.html`
+      emailRedirectTo: `${window.location.origin}/app.html`
     }
   });
   
@@ -569,7 +569,7 @@ async function oauthLogin(provider) {
   const { error } = await sb.auth.signInWithOAuth({
     provider: provider,
     options: {
-      redirectTo: `${window.location.origin}/index.html`
+      redirectTo: `${window.location.origin}/app.html`
     }
   });
   
@@ -632,7 +632,7 @@ async function sendResetEmail() {
   btn.textContent = 'SENDING RESET LINK...';
   
   const { error } = await sb.auth.resetPasswordForEmail(email, {
-    redirectTo: `${window.location.origin}/index.html`
+    redirectTo: `${window.location.origin}/app.html`
   });
   
   btn.disabled = false;

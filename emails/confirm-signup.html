@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirm Your Email — A3-Elite</title>
+<style>
+body,table,td,a{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+table,td{mso-table-lspace:0;mso-table-rspace:0}
+body{margin:0;padding:0;background:#08070e;font-family:'Inter','Helvetica Neue',Arial,sans-serif}
+.wrapper{width:100%;background:#08070e;padding:40px 0}
+.container{max-width:580px;margin:0 auto;background:#0d0c18;border-radius:16px;overflow:hidden;border:1px solid #1a1830}
+.header{padding:36px 40px 32px;text-align:center;position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(0,255,178,0.1) 0%,rgba(167,139,250,0.06) 100%);border-bottom:1px solid rgba(0,255,178,0.15)}
+.logo{font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:#00ffb2;letter-spacing:3px}
+.logo span{color:#4a4870}
+.icon{width:60px;height:60px;border-radius:14px;margin:18px auto 0;background:rgba(0,255,178,0.08);border:1px solid rgba(0,255,178,0.2);display:flex;align-items:center;justify-content:center;font-size:28px;line-height:60px;text-align:center}
+.body{padding:36px 40px}
+.title{font-size:24px;font-weight:700;color:#f5f5f5;margin:0 0 8px;letter-spacing:-0.3px}
+.sub{font-size:14px;color:#94a3b8;margin:0 0 24px;line-height:1.6}
+.text{font-size:15px;color:#cbd5e1;line-height:1.75;margin:0 0 20px}
+.text strong{color:#f5f5f5}
+.infobox{background:rgba(0,255,178,0.05);border:1px solid rgba(0,255,178,0.15);border-radius:10px;padding:18px 20px;margin:20px 0}
+.infobox-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px}
+.infobox-row:last-child{margin-bottom:0}
+.infobox-label{font-size:11px;color:#4a4870;font-family:'Courier New',monospace;letter-spacing:1px;text-transform:uppercase;margin-bottom:3px}
+.infobox-val{font-size:14px;color:#f5f5f5;font-weight:600}
+.btn-wrap{text-align:center;margin:32px 0}
+.btn{display:inline-block;padding:14px 40px;border-radius:8px;font-size:15px;font-weight:700;letter-spacing:0.5px;text-decoration:none;background:linear-gradient(135deg,#00ffb2,#0284c7);color:#000}
+.linkbox{background:#08070e;border:1px solid #1a1830;border-radius:8px;padding:14px 16px;margin:20px 0;word-break:break-all}
+.linkbox-label{font-size:11px;color:#4a4870;font-family:'Courier New',monospace;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.linkbox-url{font-size:12px;color:#00ffb2;text-decoration:none;line-height:1.5}
+.note{display:flex;gap:10px;background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.12);border-radius:8px;padding:14px 16px;margin-top:24px}
+.note p{font-size:12px;color:#94a3b8;line-height:1.6;margin:0}
+.note strong{color:#f59e0b}
+.footer{padding:24px 40px 32px;text-align:center;border-top:1px solid #1a1830}
+.footer-logo{font-family:'Courier New',monospace;font-size:11px;color:#4a4870;letter-spacing:2px;margin-bottom:12px}
+.footer-links{margin-bottom:12px}
+.footer-links a{font-size:12px;color:#4a4870;text-decoration:none;margin:0 10px}
+.footer-copy{font-size:11px;color:#2d2b4e;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="container">
+    <div class="header">
+      <div class="logo">A3-ELITE <span>INTELLIGENCE</span></div>
+      <div class="icon">✉️</div>
+    </div>
+    <div class="body">
+      <h1 class="title">Confirm your email address</h1>
+      <p class="sub">One step away from professional-grade market intelligence</p>
+      <p class="text">Welcome to <strong>A3-Elite</strong>. You're almost in — confirm your email address to activate your account and get full access to the platform.</p>
+      <div class="infobox">
+        <div class="infobox-row">
+          <span>🔐</span>
+          <div>
+            <div class="infobox-label">What you unlock</div>
+            <div class="infobox-val">60+ instruments · AI chart analysis · Real-time signals</div>
+          </div>
+        </div>
+        <div class="infobox-row">
+          <span>🕐</span>
+          <div>
+            <div class="infobox-label">Link expires in</div>
+            <div class="infobox-val">24 hours</div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-wrap">
+        <a href="{{ .ConfirmationURL }}" class="btn">Confirm Email Address</a>
+      </div>
+      <div class="linkbox">
+        <div class="linkbox-label">Or copy this link into your browser</div>
+        <a href="{{ .ConfirmationURL }}" class="linkbox-url">{{ .ConfirmationURL }}</a>
+      </div>
+      <div class="note">
+        <span>⚠️</span>
+        <p>This link expires in <strong>24 hours</strong>. If you didn't create an A3-Elite account, you can safely ignore this email.</p>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-logo">A3-ELITE INTELLIGENCE</div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Support</a>
+      </div>
+      <p class="footer-copy">© 2026 A3-Elite Intelligence. All rights reserved.<br>Built for traders, by traders.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
